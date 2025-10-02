@@ -142,6 +142,16 @@
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
+    },
+    {
+      "src": "team/jovanTeo.md",
+      "headings": {
+        "jovan-tan": "Jovan Tan",
+        "about-me": "About Me",
+        "role-in-tp": "Role in TP",
+        "fun-fact": "Fun Fact"
+      },
+      "headingKeywords": {}
     }
   ]
 }
