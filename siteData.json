@@ -7,7 +7,7 @@
       "headings": {
         "about-us": "About Us",
         "project-team": "Project team",
-        "john-doe": "John Doe",
+        "rayner-goh": "Rayner Goh",
         "jane-doe": "Jane Doe",
         "jovan-teo": "Jovan Teo",
         "jean-doe": "Jean Doe",
@@ -129,9 +129,9 @@
     },
     {
       "src": "index.md",
-      "title": "",
+      "title": "Homepage",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "trackerguru": "TrackerGuru"
       },
       "headingKeywords": {}
     },
@@ -150,6 +150,14 @@
         "about-me": "About Me",
         "role-in-tp": "Role in TP",
         "fun-fact": "Fun Fact"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/raynergoh.md",
+      "headings": {
+        "rayner-s-project-portfolio-page": "Rayner's Project Portfolio Page",
+        "project-trackerguru": "Project: TrackerGuru"
       },
       "headingKeywords": {}
     }
