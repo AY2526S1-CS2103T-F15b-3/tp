@@ -10,7 +10,7 @@
         "rayner-goh": "Rayner Goh",
         "jane-doe": "Jane Doe",
         "jovan-teo": "Jovan Teo",
-        "jean-doe": "Jean Doe",
+        "kim-soomin": "Kim Soomin",
         "james-doe": "James Doe"
       },
       "headingKeywords": {}
@@ -129,9 +129,9 @@
     },
     {
       "src": "index.md",
-      "title": "",
+      "title": "Homepage",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "trackerguru": "TrackerGuru"
       },
       "headingKeywords": {}
     },
@@ -157,6 +157,14 @@
       "src": "team/raynergoh.md",
       "headings": {
         "rayner-s-project-portfolio-page": "Rayner's Project Portfolio Page",
+        "project-trackerguru": "Project: TrackerGuru"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/soomink.md",
+      "headings": {
+        "soomin-s-portfolio-page": "Soomin's Portfolio Page",
         "project-trackerguru": "Project: TrackerGuru"
       },
       "headingKeywords": {}
