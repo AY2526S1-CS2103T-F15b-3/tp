@@ -8,7 +8,7 @@
         "about-us": "About Us",
         "project-team": "Project team",
         "rayner-goh": "Rayner Goh",
-        "jane-doe": "Jane Doe",
+        "lucius-yeo": "Lucius Yeo",
         "jovan-teo": "Jovan Teo",
         "kim-soomin": "Kim Soomin",
         "james-doe": "James Doe"
@@ -150,6 +150,14 @@
         "about-me": "About Me",
         "role-in-tp": "Role in TP",
         "fun-fact": "Fun Fact"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/luciusyeo.md",
+      "title": "Lucius Yeo's Project Portfolio Page",
+      "headings": {
+        "project-trackerguru": "Project: TrackerGuru"
       },
       "headingKeywords": {}
     },
