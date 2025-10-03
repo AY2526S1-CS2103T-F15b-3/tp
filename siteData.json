@@ -129,9 +129,9 @@
     },
     {
       "src": "index.md",
-      "title": "Homepage",
+      "title": "",
       "headings": {
-        "trackerguru": "TrackerGuru"
+        "addressbook-level-3": "AddressBook Level-3"
       },
       "headingKeywords": {}
     },
