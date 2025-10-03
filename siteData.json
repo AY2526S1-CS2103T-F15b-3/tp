@@ -11,7 +11,7 @@
         "lucius-yeo": "Lucius Yeo",
         "jovan-teo": "Jovan Teo",
         "kim-soomin": "Kim Soomin",
-        "james-doe": "James Doe"
+        "ron-koh": "Ron Koh"
       },
       "headingKeywords": {}
     },
@@ -166,6 +166,14 @@
       "headings": {
         "rayner-s-project-portfolio-page": "Rayner's Project Portfolio Page",
         "project-trackerguru": "Project: TrackerGuru"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/ronkoh.md",
+      "title": "Ron Koh's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-4": "Project: AddressBook Level 4"
       },
       "headingKeywords": {}
     },
