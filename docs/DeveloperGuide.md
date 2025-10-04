@@ -331,30 +331,129 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+---
+**Use case: UC1 - Add a contact**
 
-**Use case: Delete a person**
+**Actor:** Property Agent
+
+**Guarantees**
+
+* The address book will not contain duplicate contacts after any operation.
+* If the contact is added, all contact details provided by the user will be stored without any loss of information.
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. User requests to add a contact together with their relevant details.
+2. TrackerGuru saves the contact and its details.
+3. TrackerGuru displays a success message to the user.
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. TrackerGuru detects an error in the entered data (missing required fields or improper format).
+    * 1a1. TrackerGuru displays an error message and the proper command format to the user.  
+      Use case resumes from step 1.
 
+* 1b. TrackerGuru detects a duplicate contact (same phone number).
+    * 1b1. TrackerGuru requests confirmation to overwrite or abort.
+    * 1b2. User chooses to overwrite → TrackerGuru updates the contact and displays a success message.
+    * 1b3. User chooses to abort → Use case ends.
+
+* 1c. TrackerGuru fails to save the contact due to a system error.
+    * 1c1. TrackerGuru displays an error message.  
+      Use case ends.
+
+---
+
+**Use case: UC2 - Delete a contact**
+
+**Actor:** Property Agent
+
+**MSS**
+
+1. User requests to delete a contact.
+2. TrackerGuru deletes the contact.
+3. TrackerGuru displays a success message to the user.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. TrackerGuru detects that the contact’s unique identifier is missing in the entered data.
+    * 1a1. TrackerGuru requests for the contact’s unique identifier.  
+      Use case resumes from step 1.
+
+* 1b. TrackerGuru cannot find the specified contact’s unique identifier.
+    * 1b1. TrackerGuru requests for a valid unique identifier.
+    * 1b2. User enters a new unique identifier.  
+      Steps 1b1–1b2 are repeated until the unique identifier is one that exists.  
+      Use case resumes from step 2.
+
+* 1c. TrackerGuru fails to delete the contact due to a system error.
+    * 1c1. TrackerGuru informs the user.  
+      Use case ends.
+
+* *a. At any time, User chooses to cancel the deletion request.  
   Use case ends.
 
-* 3a. The given index is invalid.
+---
 
-    * 3a1. AddressBook shows an error message.
+**Use case: UC3 - Tag contact with role**
 
-      Use case resumes at step 2.
+**Actor:** Property Agent
+
+**Guarantees**
+
+* Role tags associated with updated contacts will be of a valid role type (buyer, seller, ...).
+
+**MSS**
+
+1. User requests to tag a contact with a role.
+2. TrackerGuru saves the contact with its updated tags (existing tags are not overridden).
+3. TrackerGuru displays a success message to the user.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. TrackerGuru detects an error in the entered data (role type entered by user is invalid).
+    * 1a1. TrackerGuru displays an error message and available role types to the user.  
+      Use case resumes from step 1.
+
+* 1b. TrackerGuru fails to save the updated contact due to a system error.
+    * 1b1. TrackerGuru displays an error message.  
+      Use case ends.
+
+---
+
+**Use case: UC4 - Search contact by name**
+
+**Actor:** Property Agent
+
+**Guarantees**
+
+* Only contacts whose names match the given keywords will be displayed to the user (if MSS completes).
+* Contact details will not be modified.
+
+**MSS**
+
+1. User requests for contacts whose name matches the given keywords.
+2. TrackerGuru displays all matching contacts.
+3. TrackerGuru displays a success message to the user.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. TrackerGuru detects an error in the entered data (missing required fields or improper format).
+    * 1a1. TrackerGuru displays an error message and proper command format to the user.  
+      Use case resumes from step 1.
+
+* 1b. TrackerGuru fails to search contacts due to a system error.
+    * 1b1. TrackerGuru displays an error message.  
+      Use case ends.
+
 
 *{More to be added}*
 
