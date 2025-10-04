@@ -337,10 +337,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to list persons.
+2.  AddressBook shows a list of persons.
+3.  User requests to delete a specific person in the list.
+4.  AddressBook deletes the person.
 
     Use case ends.
 
@@ -356,7 +356,69 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: Edit a contact**
+
+**Actor: User**
+
+**Guarantees**
+
+* Existing contact information will be updated to the address book only if MSS completes.
+* All the fields in the contact will be of valid type.
+
+**MSS**
+
+1. User requests to edit contact with together with their relevant details.
+2. System edits and saves the updated contact information.
+3. System displays success message to the user. 
+4. System's contact list reflects the updated contact information.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. System detects an error in the entered data (invalid index).
+
+  * 1a1. System displays error message that the specified index is invalid.
+  
+    Use case resumes from step 1.
+
+* 2a. System fails to edit the contact information due to a system error.
+
+  * 2a1. System displays an error message indicating the failure. 
+  
+    Use case ends.
+
+**Use case: Sort contacts**
+
+**Actor: User**
+
+**Guarantees**
+
+* The contact list remains intact with no data lost or modified.
+* The contact list will be displayed in the specified sorted order.
+
+**MSS**
+
+1. User requests to sort the contact list.
+2. System sorts the contact list based on the specified criterion.
+3. System displays the sorted contact list.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. System detects an error in the entered data (invalid or missing sorting criterion).
+
+  * 1a1. System displays an error message indicating that the criterion is invalid or missing.
+    
+    Use case resumes from step 1.
+
+* 2a. System fails to sort the contacts due to a system error. 
+
+  * 2a1. System displays an error message indicating the failure. 
+  
+    Use case ends.
+
 
 ### Non-Functional Requirements
 
