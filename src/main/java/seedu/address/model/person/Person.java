@@ -25,7 +25,14 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
+    // v1.2: New fields for future migration
+    private final Set<Role> roles; // TODO: Implement fully
+    private final Status status; // TODO: Implement fully
+
     /**
+     * Legacy constructor (DO NOT REMOVE YET).
+     * This constructor is required for backward compatibility.
+     * Migration of all code to the new fields is pending.
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
@@ -35,6 +42,27 @@ public class Person {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        // Temporary stubs for migration
+        this.roles = Collections.emptySet();
+        this.status = null;
+    }
+
+    /**
+     * Overloaded constructor for new Role and Status fields (v1.2).
+     * Please use this constructor if working on new feature branches.
+     * Note: Assignments are stubbed for now (TODO for full implementation).
+     */
+    public Person(Name name, Phone phone, Email email, Address address, Set<Role> roles,
+                  Status status, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.tags.addAll(tags);
+        // These fields to be fully wired up once Role/Status features are merged
+        this.roles = roles != null ? roles : Collections.emptySet();
+        this.status = status;
     }
 
     public Name getName() {
@@ -52,6 +80,16 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    public Set<Role> getRoles() {
+        // TODO: To be implemented (if any changes to be made)
+        return roles;
+    }
+    public Status getStatus() {
+        // TODO: To be implemented (if any changes to be made)
+        return status;
+    }
+
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
