@@ -23,17 +23,19 @@ public class Person {
 
     // Data fields
     private final Address address;
+    private final Set<Role> roles = new HashSet<>();
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Set<Role> roles, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, roles, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.roles.addAll(roles);
         this.tags.addAll(tags);
     }
 
@@ -60,7 +62,6 @@ public class Person {
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
     }
-
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
