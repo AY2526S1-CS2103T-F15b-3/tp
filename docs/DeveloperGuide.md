@@ -297,25 +297,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | new user                    | view a list of my contacts                                                                  | I can see all my current contacts                                             |
 | `* * *`  | new user                    | add a new contact                                                                           | I can keep track of my growing contacts                                       |
 | `* * *`  | new user                    | delete a contact                                                                            | I can remove contacts I no longer need                                        |
-| `* * *`  | new user                    | view a contact's information                                                                | I can easily reference information about a contact                            |
-| `* *`    | new user                    | edit a contact's information                                                                | I can make amends to changes easily                                           |
-| `* * *`  | new user                    | view all the tags of a contact                                                              | I can identify the specific characteristics of each contact                   |
-| `* *`    | new user                    | give a contact a role tag                                                                   | I can identify the different types of my clients easily                       |
-| `* *`    | new user                    | delete a role tag from a contact                                                            | I can remove roles that no longer apply to the contact                        |
+| `* * *`  | new user                    | view a contact's details                                                                    | I can easily reference information about a contact                            |
+| `* *`    | new user                    | edit a contact's details                                                                    | I can make amends to changes easily                                           |
+| `* *`    | new user                    | give an existing contact a role                                                             | I can identify the different types of my clients easily                       |
+| `* *`    | new user                    | delete a role from an existing contact                                                      | I can remove roles that no longer apply to the contact                        |
 | `* *`    | new user                    | assign a client a property price tag                                                        | I can identify the property price which a client is willing to buy/sell/rent  |
 | `* *`    | new user                    | remove a property price tag from a client                                                   | I can remove property prices that no longer describe the client               |
 | `* *`    | new user                    | update a property price tag of a client                                                     | I can easily update the most recent property prices a client want             |
 | `* *`    | new user                    | give a client a property location tag                                                       | I can identify contacts by property location                                  |
 | `* *`    | new user                    | remove a property location tag from a client                                                | I can remove a property location that the contact no longer owns/wants        |
-| `* *`    | new user                    | give a client a status tag                                                                  | I can know each client's transaction status                                   |
-| `* *`    | new user                    | remove the status tag from a client                                                         | I can remove a transaction status from a client that no longer applies        |
+| `* *`    | new user                    | give a client a status                                                                      | I can know each client's transaction status                                   |
+| `* *`    | new user                    | remove the status from a client                                                             | I can remove a transaction status from a client that no longer applies        |
 | `* *`    | new user                    | give a client a property size tag                                                           | I can know the size of the property a client wants/owns                       |
 | `* *`    | new user                    | remove the property size tag from a client                                                  | I can remove outdated information about the property size of a client         |
 | `* *`    | new user                    | give a client a property type tag                                                           | I can know the type of the property a client wants/owns                       |
 | `* *`    | new user                    | remove the property type tag from a client                                                  | I can remove outdated information about the property type of a client         |
 | `* *`    | new user                    | give a tenant client a rental duration tag                                                  | I can know the tenancy period of each tenant                                  |
 | `* *`    | user with sensitive clients | hide contact details                                                                        | I can minimize chance of someone else seeing them by accident                 |
-| `* *`    | expert user                 | create a contact with a role tag in one command                                             | I can add contacts already with confirmed roles more efficiently              |
+| `* *`    | user with many client roles | view all client roles in the addressbook                                                    | I can understand what types of roles I have already created so far            |
+| `* *`    | user with many client roles | be warned about similar roles created previously                                            | I can reduce the number of duplicated roles caused by inconsistent formatting |
 | `*`      | expert user                 | quickly filter tenants based on expiring rental contracts                                   | I know which tenant to follow up next                                         |
 | `*`      | expert user                 | easily advance the status tag of clients to the next state (e.g. looking to buy to signing) | I can easily know the transaction status of my clients                        |
 | `*`      | expert user                 | view summary statistics like total clients or total buyers                                  | I can have an overview of my own portfolio                                    |
@@ -547,8 +547,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **client**: A specific kind of contact that represents customers of the property agent (i.e. property buyers, sellers, landlords, tenants) 
 * **contact information**: Exact contact details of a person; name, phone number, email, address
 * **contact tags**: Labels or categories used to group contacts
-* **role tag**: A label that defines the function or relationship of a contact (e.g. buyer, seller, landlord, tenant) in the property business 
-* **status tag**: A label indicating the current state of a client transaction (e.g. looking to sell, looking to buy, signing).
+* **role**: A field that defines the function or relationship of a contact (e.g. buyer, seller, landlord, tenant) in the property business 
+* **status**: A label indicating the current state of a client transaction (e.g. looking to sell, looking to buy, signing).
 * **property size**: A label describing the size of a property in sqft that the client is offering/looking for
 * **property type**: A label describing the type of property that the client is offering/looking for (e.g. studio, terrace, hdb)
 * **property location**: A label specifying the geographical area of a property that the client is offering/looking for (e.g. Bishan, Woodlands)
