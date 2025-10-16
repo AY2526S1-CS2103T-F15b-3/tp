@@ -3,8 +3,8 @@ package seedu.address.model.person;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,55 +14,55 @@ class RoleStatusPredicateTest {
 
     @Test
     void test_matchesRoleOnly_returnsTrue() {
-        // TODO: Implement test once RoleStatusPredicate.test() is implemented
-        // TODO: Implement PersonBuilder.withRole(String) method
-        Person person = new PersonBuilder()/* .withRole("buyer") */.build();
-        RoleStatusPredicate predicate = new RoleStatusPredicate(Arrays.asList("buyer"), Collections.emptyList());
+        Person person = new PersonBuilder().withRoles("buyer").build();
+        Set<Role> roles = Set.of(new Role("buyer"));
+        Set<Status> statuses = Collections.emptySet();
+        RoleStatusPredicate predicate = new RoleStatusPredicate(roles, statuses);
 
-        // TODO: Replace with actual test assertion
         assertTrue(predicate.test(person));
     }
 
     @Test
     void test_matchesStatusOnly_returnsTrue() {
-        // TODO: Implement test once RoleStatusPredicate.test() is implemented
-        // TODO: Implement PersonBuilder.withStatus(String) method
-        Person person = new PersonBuilder()/* .withStatus("completed") */.build();
-        RoleStatusPredicate predicate = new RoleStatusPredicate(Collections.emptyList(), Arrays.asList("completed"));
+        Person person = new PersonBuilder().withStatus(Status.COMPLETED).build();
+        Set<Role> roles = Collections.emptySet();
+        Set<Status> statuses = Set.of(Status.COMPLETED);
+        RoleStatusPredicate predicate = new RoleStatusPredicate(roles, statuses);
 
-        // TODO: Replace with actual test assertion
         assertTrue(predicate.test(person));
     }
 
     @Test
     void test_matchesRoleAndStatus_returnsTrue() {
-        // TODO: Implement test once RoleStatusPredicate.test() is implemented
-        // TODO: Implement PersonBuilder.withRole(String) and withStatus(String)
-        Person person = new PersonBuilder()/* .withRole("buyer").withStatus("completed") */.build();
-        RoleStatusPredicate predicate = new RoleStatusPredicate(Arrays.asList("buyer"), Arrays.asList("completed"));
+        Person person = new PersonBuilder().withRoles("buyer").withStatus(Status.COMPLETED).build();
+        Set<Role> roles = Set.of(new Role("buyer"));
+        Set<Status> statuses = Set.of(Status.COMPLETED);
+        RoleStatusPredicate predicate = new RoleStatusPredicate(roles, statuses);
 
-        // TODO: Replace with actual test assertion
         assertTrue(predicate.test(person));
     }
 
     @Test
-    void test_emptyKeywords_matchesAll() {
-        // TODO: Implement test once RoleStatusPredicate.test() is implemented
-        // TODO: Implement PersonBuilder.withRole(String) and withStatus(String)
-        Person person = new PersonBuilder()/* .withRole("anyrole").withStatus("anystatus") */.build();
-        RoleStatusPredicate predicate = new RoleStatusPredicate(Collections.emptyList(), Collections.emptyList());
+    void test_noMatches_returnsFalse() {
+        Person person = new PersonBuilder().withRoles("buyer").withStatus(Status.PENDING).build();
+        Set<Role> roles = Set.of(new Role("seller"));
+        Set<Status> statuses = Set.of(Status.COMPLETED);
+        RoleStatusPredicate predicate = new RoleStatusPredicate(roles, statuses);
 
-        // TODO: Replace with actual test assertion
-        assertTrue(predicate.test(person));
+        assertFalse(predicate.test(person));
     }
+
     @Test
     void test_equals() {
-        RoleStatusPredicate predicate1 = new RoleStatusPredicate(
-                Arrays.asList("buyer"), Arrays.asList("completed"));
-        RoleStatusPredicate predicate2 = new RoleStatusPredicate(
-                Arrays.asList("buyer"), Arrays.asList("completed"));
-        RoleStatusPredicate predicate3 = new RoleStatusPredicate(
-                Arrays.asList("seller"), Arrays.asList("pending"));
+        Set<Role> roles1 = Set.of(new Role("buyer"));
+        Set<Status> statuses1 = Set.of(Status.COMPLETED);
+
+        Set<Role> roles2 = Set.of(new Role("seller"));
+        Set<Status> statuses2 = Set.of(Status.PENDING);
+
+        RoleStatusPredicate predicate1 = new RoleStatusPredicate(roles1, statuses1);
+        RoleStatusPredicate predicate2 = new RoleStatusPredicate(roles1, statuses1);
+        RoleStatusPredicate predicate3 = new RoleStatusPredicate(roles2, statuses2);
 
         // same object
         assertTrue(predicate1.equals(predicate1));
@@ -80,4 +80,3 @@ class RoleStatusPredicateTest {
         assertFalse(predicate1.equals("not a predicate"));
     }
 }
-

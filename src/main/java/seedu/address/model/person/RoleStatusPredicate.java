@@ -1,34 +1,41 @@
 package seedu.address.model.person;
 
-import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.function.Predicate;
+
+import seedu.address.commons.util.ToStringBuilder;
 
 /**
  * Tests that a {@code Person}'s role and/or status matches any of the given keywords.
  */
 public class RoleStatusPredicate implements Predicate<Person> {
 
-    private final List<String> roleKeywords;
-    private final List<String> statusKeywords;
+    private final Set<Role> roles;
+    private final Set<Status> statuses;
 
     /**
-     * Creates a predicate with the given role and status keyword lists.
+     * Creates a predicate with the given roles and statuses.
      *
-     * @param roleKeywords   the list of role keywords to match
-     * @param statusKeywords the list of status keywords to match
+     * @param roles   the list of role keywords to match
+     * @param statuses the list of status keywords to match
      */
-    public RoleStatusPredicate(List<String> roleKeywords, List<String> statusKeywords) {
-        this.roleKeywords = roleKeywords;
-        this.statusKeywords = statusKeywords;
+    public RoleStatusPredicate(Set<Role> roles, Set<Status> statuses) {
+        this.roles = roles;
+        this.statuses = statuses;
     }
 
     /**
-     * Returns true if the given {@code Person} matches the role and/or status keywords.
-     * TODO: Implement the actual matching logic for role and status keywords.
+     * Returns true if the given {@code Person} matches the roles or statuses.
      */
     @Override
     public boolean test(Person person) {
-        return true;
+        Set<Role> personRoles = person.getRoles();
+        Status personStatus = person.getStatus();
+
+        boolean hasMatchingRole = this.roles.stream().anyMatch(personRoles::contains);
+        boolean hasMatchingStatus = this.statuses.stream().anyMatch(status -> status.equals(personStatus));
+        return hasMatchingRole || hasMatchingStatus;
     }
 
     @Override
@@ -40,8 +47,14 @@ public class RoleStatusPredicate implements Predicate<Person> {
             return false;
         }
         RoleStatusPredicate otherPredicate = (RoleStatusPredicate) other;
-        return roleKeywords.equals(otherPredicate.roleKeywords)
-                && statusKeywords.equals(otherPredicate.statusKeywords);
+        return Objects.equals(roles, otherPredicate.roles)
+                && Objects.equals(statuses, otherPredicate.statuses);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this).add("roles", roles)
+                .add("statuses", statuses).toString();
     }
 
 }

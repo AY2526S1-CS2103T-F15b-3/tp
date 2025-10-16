@@ -40,6 +40,7 @@ public class ParserUtilTest {
     private static final String VALID_ROLE_1 = "Buyer";
     private static final String VALID_ROLE_2 = "Seller";
     private static final String VALID_STATUS = "PENDING";
+    private static final String VALID_STATUS_2 = "COMPLETED";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -274,5 +275,31 @@ public class ParserUtilTest {
     public void parseStatus_validValueLowercase_returnsStatus() throws Exception {
         Status expectedStatus = Status.valueOf(VALID_STATUS);
         assertEquals(expectedStatus, ParserUtil.parseStatus(VALID_STATUS.toLowerCase()));
+    }
+
+    @Test
+    public void parseStatuses_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseStatuses(null));
+    }
+
+    @Test
+    public void parseStatuses_collectionWithInvalidStatuses_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseStatuses(
+                Arrays.asList(VALID_STATUS, INVALID_STATUS)
+        ));
+    }
+
+    @Test
+    public void parseStatuses_emptyCollection_returnsEmptySet() throws Exception {
+        assertTrue(ParserUtil.parseStatuses(Collections.emptyList()).isEmpty());
+    }
+
+    @Test
+    public void parseStatuses_collectionWithValidStatuses_returnsStatusSet() throws Exception {
+        Set<Status> actualStatusSet = ParserUtil.parseStatuses(Arrays.asList(VALID_STATUS, VALID_STATUS_2));
+        Set<Status> expectedStatusSet = new HashSet<>(Arrays.asList(Status.valueOf(VALID_STATUS),
+                Status.valueOf(VALID_STATUS_2)));
+
+        assertEquals(expectedStatusSet, actualStatusSet);
     }
 }

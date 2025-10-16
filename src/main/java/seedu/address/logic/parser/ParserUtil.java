@@ -140,6 +140,18 @@ public class ParserUtil {
     }
 
     /**
+     * Parses {@code Collection<String> statuses} into a {@code Set<Status>}.
+     */
+    public static Set<Status> parseStatuses(Collection<String> statuses) throws ParseException {
+        requireNonNull(statuses);
+        final Set<Status> statusSet = new HashSet<>();
+        for (String statusName : statuses) {
+            statusSet.add(parseStatus(statusName));
+        }
+        return statusSet;
+    }
+
+    /**
      * Parses a {@code String tag} into a {@code Tag}.
      * Leading and trailing whitespaces will be trimmed.
      *
