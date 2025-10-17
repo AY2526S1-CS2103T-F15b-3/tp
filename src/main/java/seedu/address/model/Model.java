@@ -1,11 +1,13 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.TagGroup;
 
 /**
  * The API of the Model component.
@@ -89,4 +91,38 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Returns an unmodifiable set of all TagGroups registered in the address book.
+     * This set will not contain duplicates and cannot be modified by callers.
+     *
+     * @return unmodifiable set of TagGroups.
+     */
+    Set<TagGroup> getTagGroups();
+
+    /**
+     * Returns true if this TagGroup exists in the registry.
+     *
+     * @param group TagGroup to check for existence.
+     * @return true if TagGroup exists, false otherwise.
+     */
+    boolean hasTagGroup(TagGroup group);
+
+    /**
+     * Adds a TagGroup to the registry.
+     * No effect if TagGroup already exists.
+     *
+     * @param group TagGroup to add.
+     */
+    void addTagGroup(TagGroup group);
+
+    /**
+     * Removes the given TagGroup from the registry.
+     * No effect if TagGroup does not exist.
+     *
+     * @param group TagGroup to remove.
+     */
+    void removeTagGroup(TagGroup group);
+
+
 }

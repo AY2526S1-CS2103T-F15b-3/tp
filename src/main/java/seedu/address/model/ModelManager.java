@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -12,6 +13,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.TagGroup;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -132,6 +134,28 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    //=========== TagGroup Registry =============================================================
+
+    @Override
+    public Set<TagGroup> getTagGroups() {
+        return addressBook.getTagGroups();
+    }
+
+    @Override
+    public boolean hasTagGroup(TagGroup group) {
+        return addressBook.hasTagGroup(group);
+    }
+
+    @Override
+    public void addTagGroup(TagGroup group) {
+        addressBook.addTagGroup(group);
+    }
+
+    @Override
+    public void removeTagGroup(TagGroup group) {
+        addressBook.removeTagGroup(group);
     }
 
     @Override

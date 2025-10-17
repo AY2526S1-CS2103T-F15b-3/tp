@@ -2,12 +2,16 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.tag.TagGroup;
 
 /**
  * Wraps all data at the address-book level
@@ -16,6 +20,8 @@ import seedu.address.model.person.UniquePersonList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
+
+    private final Set<TagGroup> tagGroups = new HashSet<>();
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -100,6 +106,37 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removePerson(Person key) {
         persons.remove(key);
+    }
+
+    //// Methods for Tag registry management:
+
+    @Override
+    public Set<TagGroup> getTagGroups() {
+        return Collections.unmodifiableSet(tagGroups);
+    }
+
+    @Override
+    public boolean hasTagGroup(TagGroup group) {
+        requireNonNull(group);
+        return tagGroups.contains(group);
+    }
+
+    /**
+     * Adds the given TagGroup to the registry.
+     * @param group TagGroup to add
+     */
+    public void addTagGroup(TagGroup group) {
+        requireNonNull(group);
+        tagGroups.add(group);
+    }
+
+    /**
+     * Removes the given TagGroup from the registry.
+     * @param group TagGroup to remove
+     */
+    public void removeTagGroup(TagGroup group) {
+        requireNonNull(group);
+        tagGroups.remove(group);
     }
 
     //// util methods

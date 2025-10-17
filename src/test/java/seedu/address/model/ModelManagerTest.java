@@ -11,11 +11,13 @@ import static seedu.address.testutil.TypicalPersons.BENSON;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.tag.TagGroup;
 import seedu.address.testutil.AddressBookBuilder;
 
 public class ModelManagerTest {
@@ -91,6 +93,31 @@ public class ModelManagerTest {
     @Test
     public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredPersonList().remove(0));
+    }
+
+    @Test
+    public void addTagGroup_hasTagGroup_groupAdded() {
+        TagGroup group = new TagGroup("propertyType");
+        assertFalse(modelManager.hasTagGroup(group));
+        modelManager.addTagGroup(group);
+        assertTrue(modelManager.hasTagGroup(group));
+    }
+
+    @Test
+    public void getTagGroups_modifyReturnedSet_throwsUnsupportedOperationException() {
+        TagGroup group = new TagGroup("location");
+        modelManager.addTagGroup(group);
+        Set<TagGroup> tagGroups = modelManager.getTagGroups();
+        assertThrows(UnsupportedOperationException.class, () -> tagGroups.remove(group));
+    }
+
+    @Test
+    public void removeTagGroup_hasTagGroup_groupRemoved() {
+        TagGroup group = new TagGroup("propertyType");
+        modelManager.addTagGroup(group);
+        assertTrue(modelManager.hasTagGroup(group));
+        modelManager.removeTagGroup(group);
+        assertFalse(modelManager.hasTagGroup(group));
     }
 
     @Test

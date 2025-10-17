@@ -1,5 +1,6 @@
 package seedu.address.model;
 
+import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -12,7 +13,9 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +23,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.tag.TagGroup;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookTest {
@@ -89,11 +93,37 @@ public class AddressBookTest {
         assertEquals(expected, addressBook.toString());
     }
 
+    @Test
+    public void addTagGroup_hasTagGroup_groupAdded() {
+        TagGroup group = new TagGroup("propertyType");
+        assertFalse(addressBook.hasTagGroup(group));
+        addressBook.addTagGroup(group);
+        assertTrue(addressBook.hasTagGroup(group));
+    }
+
+    @Test
+    public void getTagGroups_modifyReturnedSet_throwsUnsupportedOperationException() {
+        TagGroup group = new TagGroup("location");
+        addressBook.addTagGroup(group);
+        Set<TagGroup> tagGroups = addressBook.getTagGroups();
+        assertThrows(UnsupportedOperationException.class, () -> tagGroups.remove(group));
+    }
+
+    @Test
+    public void removeTagGroup_hasTagGroup_groupRemoved() {
+        TagGroup group = new TagGroup("propertyType");
+        addressBook.addTagGroup(group);
+        assertTrue(addressBook.hasTagGroup(group));
+        addressBook.removeTagGroup(group);
+        assertFalse(addressBook.hasTagGroup(group));
+    }
+
     /**
      * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
      */
     private static class AddressBookStub implements ReadOnlyAddressBook {
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
+        private final Set<TagGroup> tagGroups = new HashSet<>();
 
         AddressBookStub(Collection<Person> persons) {
             this.persons.setAll(persons);
@@ -102,6 +132,27 @@ public class AddressBookTest {
         @Override
         public ObservableList<Person> getPersonList() {
             return persons;
+        }
+
+        @Override
+        public Set<TagGroup> getTagGroups() {
+            return Collections.unmodifiableSet(tagGroups);
+        }
+
+        @Override
+        public boolean hasTagGroup(TagGroup group) {
+            requireNonNull(group);
+            return tagGroups.contains(group);
+        }
+
+        public void addTagGroup(TagGroup group) {
+            requireNonNull(group);
+            tagGroups.add(group);
+        }
+
+        public void removeTagGroup(TagGroup group) {
+            requireNonNull(group);
+            tagGroups.remove(group);
         }
     }
 
