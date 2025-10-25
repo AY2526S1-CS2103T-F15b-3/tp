@@ -65,6 +65,11 @@ public interface Model {
     boolean hasSamePhoneNumber(Person person);
 
     /**
+     * Returns true if a person with the same email address as {@code email} exists in the address book.
+     */
+    boolean hasSameEmail(Person person);
+
+    /**
      * Deletes the given person.
      * The person must exist in the address book.
      */

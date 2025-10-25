@@ -102,6 +102,12 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasSameEmail(Person person) {
+        requireNonNull(person);
+        return addressBook.hasSameEmail(person);
+    }
+
+    @Override
     public void deletePerson(Person target) {
         addressBook.removePerson(target);
     }

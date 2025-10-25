@@ -71,6 +71,25 @@ public class AddCommandTest {
     }
 
     @Test
+    public void execute_duplicateEmail_throwsCommandException() {
+        Person validPerson = new PersonBuilder()
+                .withEmail("test@example.com")
+                .withPhone("12345678")
+                .build();
+        ModelStub modelStub = new ModelStubWithPerson(validPerson);
+
+        Person personWithSameEmail = new PersonBuilder()
+                .withName("Different Name")
+                .withPhone("87654321")
+                .withEmail("test@example.com")
+                .build();
+        AddCommand addCommand = new AddCommand(personWithSameEmail);
+
+        assertThrows(CommandException.class,
+                AddCommand.MESSAGE_DUPLICATE_EMAIL, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
     public void equals() {
         Person alice = new PersonBuilder().withName("Alice").build();
         Person bob = new PersonBuilder().withName("Bob").build();
@@ -161,6 +180,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasSameEmail(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
@@ -223,6 +247,12 @@ public class AddCommandTest {
             requireNonNull(person);
             return this.person.isSamePhone(person);
         }
+
+        @Override
+        public boolean hasSameEmail(Person person) {
+            requireNonNull(person);
+            return this.person.isSameEmail(person);
+        }
     }
 
     /**
@@ -241,6 +271,12 @@ public class AddCommandTest {
         public boolean hasSamePhoneNumber(Person person) {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePhone);
+        }
+
+        @Override
+        public boolean hasSameEmail(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::isSameEmail);
         }
 
         @Override

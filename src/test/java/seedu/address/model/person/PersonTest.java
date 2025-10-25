@@ -52,6 +52,44 @@ public class PersonTest {
     }
 
     @Test
+    public void isSamePhone() {
+        // same object -> returns true
+        assertTrue(ALICE.isSamePhone(ALICE));
+
+        // null -> returns false
+        assertFalse(ALICE.isSamePhone(null));
+
+        // same phone, all other attributes different -> returns true
+        Person editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB)
+                .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+                .withTags(VALID_TAG_HUSBAND).build();
+        assertTrue(ALICE.isSamePhone(editedAlice));
+
+        // different phone, all other attributes same -> returns false
+        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        assertFalse(ALICE.isSamePhone(editedAlice));
+    }
+
+    @Test
+    public void isSameEmail() {
+        // same object -> returns true
+        assertTrue(ALICE.isSameEmail(ALICE));
+
+        // null -> returns false
+        assertFalse(ALICE.isSameEmail(null));
+
+        // same email, all other attributes different -> returns true
+        Person editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB)
+                .withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
+                .withTags(VALID_TAG_HUSBAND).build();
+        assertTrue(ALICE.isSameEmail(editedAlice));
+
+        // different email, all other attributes same -> returns false
+        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
+        assertFalse(ALICE.isSameEmail(editedAlice));
+    }
+
+    @Test
     public void equals() {
         // same values -> returns true
         Person aliceCopy = new PersonBuilder(ALICE).build();
