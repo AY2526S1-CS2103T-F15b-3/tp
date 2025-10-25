@@ -16,6 +16,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.Role;
 import seedu.address.model.person.Status;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagGroup;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -180,5 +181,32 @@ public class ParserUtil {
             tagSet.add(parseTag(tagFormat));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String tagGroupName} into a {@code TagGroup}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tagGroupName} is invalid.
+     */
+    public static TagGroup parseTagGroup(String tagGroupName) throws ParseException {
+        requireNonNull(tagGroupName);
+        String trimmedName = tagGroupName.trim();
+        if (!TagGroup.isValidTagGroupName(trimmedName)) {
+            throw new ParseException(TagGroup.MESSAGE_CONSTRAINTS);
+        }
+        return new TagGroup(trimmedName);
+    }
+
+    /**
+     * Parses {@code Collection<String> tagGroupNames} into a {@code Set<TagGroup>}.
+     */
+    public static Set<TagGroup> parseTagGroups(Collection<String> tagGroupNames) throws ParseException {
+        requireNonNull(tagGroupNames);
+        final Set<TagGroup> tagGroupSet = new HashSet<>();
+        for (String name : tagGroupNames) {
+            tagGroupSet.add(parseTagGroup(name));
+        }
+        return tagGroupSet;
     }
 }

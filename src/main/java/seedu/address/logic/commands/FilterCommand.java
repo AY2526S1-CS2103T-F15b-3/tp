@@ -5,10 +5,10 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.person.RoleStatusPredicate;
+import seedu.address.model.person.RoleStatusTagGroupPredicate;
 
 /**
- * Filters and lists all persons in the address book whose role and/or status
+ * Filters and lists all persons in the address book whose role, status, and/or tag groups
  * match the specified keywords.
  */
 public class FilterCommand extends Command {
@@ -16,18 +16,18 @@ public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Filters contacts by role and/or status. "
-            + "Parameters: [r/ROLE [MORE_ROLES] ...] [s/STATUS [MORE_STATUS] ...]\n"
-            + "Example: " + COMMAND_WORD + " r/buyer r/seller s/completed s/pending";
+            + ": Filters contacts by role, status, and/or tag group. "
+            + "Parameters: [r/ROLE]... [s/STATUS]... [tg/TAGGROUP]...\n"
+            + "Example: " + COMMAND_WORD + " r/buyer s/completed tg/location";
 
-    private final RoleStatusPredicate predicate;
+    private final RoleStatusTagGroupPredicate predicate;
 
     /**
      * Creates a new FilterCommand with the given predicate.
      *
-     * @param predicate the predicate containing the role and/or status filters
+     * @param predicate the predicate containing the role, status, and/or tag group filters
      */
-    public FilterCommand(RoleStatusPredicate predicate) {
+    public FilterCommand(RoleStatusTagGroupPredicate predicate) {
         this.predicate = predicate;
     }
 
