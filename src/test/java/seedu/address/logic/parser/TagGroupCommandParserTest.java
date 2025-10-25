@@ -9,9 +9,6 @@ import seedu.address.logic.commands.TagGroupCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tag.TagGroup;
 
-/**
- * Unit tests for TagGroupCommandParser.
- */
 public class TagGroupCommandParserTest {
 
     private final TagGroupCommandParser parser = new TagGroupCommandParser();
