@@ -1,0 +1,94 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AddCommandParser" as AddCommandParser LOGIC_COLOR
+participant "a:AddCommand" as AddCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":ModelManager" as ModelManager MODEL_COLOR
+participant ":AddressBook" as AddressBook MODEL_COLOR
+participant ":UniquePersonList" as UniquePersonList MODEL_COLOR
+end box
+
+[-> LogicManager : execute("add n/John p/12345678...")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("add n/John p/12345678...")
+activate AddressBookParser
+
+create AddCommandParser
+AddressBookParser -> AddCommandParser
+activate AddCommandParser
+
+AddCommandParser --> AddressBookParser
+deactivate AddCommandParser
+
+AddressBookParser -> AddCommandParser : parse("n/John p/12345678...")
+activate AddCommandParser
+
+create AddCommand
+AddCommandParser -> AddCommand
+activate AddCommand
+
+AddCommand --> AddCommandParser : a
+deactivate AddCommand
+
+AddCommandParser --> AddressBookParser : a
+deactivate AddCommandParser
+AddCommandParser -[hidden]-> AddressBookParser
+destroy AddCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> AddCommand : execute(m)
+activate AddCommand
+
+AddCommand -> ModelManager : hasPerson(toAdd)
+activate ModelManager
+
+ModelManager -> AddressBook : hasPerson(toAdd)
+activate AddressBook
+
+AddressBook -> UniquePersonList : contains(toAdd)
+activate UniquePersonList
+
+UniquePersonList --> AddressBook : false
+deactivate UniquePersonList
+
+AddressBook --> ModelManager : false
+deactivate AddressBook
+
+ModelManager --> AddCommand : false
+deactivate ModelManager
+
+AddCommand -> ModelManager : hasSamePhoneNumber(toAdd)
+activate ModelManager
+
+ModelManager -> AddressBook : hasSamePhoneNumber(toAdd)
+activate AddressBook
+
+AddressBook -> UniquePersonList : containsPhoneNumber(toAdd)
+activate UniquePersonList
+
+UniquePersonList --> AddressBook : true
+deactivate UniquePersonList
+
+AddressBook --> ModelManager : true
+deactivate AddressBook
+
+ModelManager --> AddCommand : true
+deactivate ModelManager
+
+AddCommand --X LogicManager : CommandException\n(MESSAGE_DUPLICATE_PHONE)
+deactivate AddCommand
+
+[<--X LogicManager : "This phone number already\nexists in the address book"
+deactivate LogicManager
+
+@enduml
