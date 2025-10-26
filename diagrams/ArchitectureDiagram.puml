@@ -4,23 +4,34 @@
 !include <office/Users/user>
 !include style.puml
 
-Package " "<<Rectangle>>{
-    Class UI UI_COLOR
-    Class Logic LOGIC_COLOR
-    Class Storage STORAGE_COLOR
-    Class Model MODEL_COLOR
-    Class Main #grey
-    Class Commons LOGIC_COLOR_T2
+'--- Basic spacing ---
+skinparam ranksep 50
+skinparam nodesep 80
+
+package " " <<Rectangle>> {
+    class UI UI_COLOR
+    class Logic LOGIC_COLOR
+    class Storage STORAGE_COLOR
+    class Model MODEL_COLOR
+    class Main #grey
+    class Commons LOGIC_COLOR_T2
 }
 
-Class "<$user>" as User MODEL_COLOR_T2
-Class "<$documents>" as File UI_COLOR_T1
+class "<$user>" as User MODEL_COLOR_T2
+class "<$documents>" as File UI_COLOR_T1
 
+'--- Layout hints (invisible) ---
+UI -[hidden]-> Logic
+Logic -[hidden]-> Storage
+Storage -[hidden]-> Model
 
+'--- Relationships ---
 UI -[#green]> Logic
 UI -right[#green]-> Model
+
 Logic -[#blue]-> Storage
 Logic -down[#blue]-> Model
+
 Main -[#grey]-> UI
 Main -[#grey]-> Logic
 Main -[#grey]-> Storage
@@ -28,6 +39,8 @@ Main -up[#grey]-> Model
 Main -down[hidden]-> Commons
 
 Storage -up[STORAGE_COLOR].> Model
-Storage .right[STORAGE_COLOR].>File
+Storage .right[STORAGE_COLOR].> File
+
 User ..> UI
+
 @enduml
