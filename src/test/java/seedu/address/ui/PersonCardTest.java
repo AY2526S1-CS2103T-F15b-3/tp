@@ -8,22 +8,15 @@ import static seedu.address.testutil.TypicalPersons.AMY;
 
 import java.util.concurrent.CountDownLatch;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
 
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import seedu.address.model.person.Person;
 
 @ExtendWith(ApplicationExtension.class)
 public class PersonCardTest {
-
-    @BeforeAll
-    public static void setupJavaFxToolkit() {
-        new JFXPanel(); // Initializes the JavaFX runtime
-    }
 
     @Test
     public void display_personWithStatus_statusLabelIsVisible() throws InterruptedException {
