@@ -134,5 +134,4 @@ public class PersonCard extends UiPart<Region> {
     Label getStatusLabel() {
         return status;
     }
-    
 }
