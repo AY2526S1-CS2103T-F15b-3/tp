@@ -45,6 +45,70 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label status;
 
+    // --- Getter methods for testing (package-private) ---
+    // These methods are package-private and exist only for
+    // PersonCardTest.java to access private @FXML fields.
+
+    /**
+     * Returns the Label component for the person's display index (ID).
+     * Intended for testing only.
+     *
+     * @return The Label for the ID.
+     */
+    Label getIdLabel() {
+        return id;
+    }
+
+    /**
+     * Returns the Label component for the person's name.
+     * Intended for testing only.
+     *
+     * @return The Label for the name.
+     */
+    Label getNameLabel() {
+        return name;
+    }
+
+    /**
+     * Returns the Label component for the person's phone.
+     * Intended for testing only.
+     *
+     * @return The Label for the phone.
+     */
+    Label getPhoneLabel() {
+        return phone;
+    }
+
+    /**
+     * Returns the Label component for the person's address.
+     * Intended for testing only.
+     *
+     * @return The Label for the address.
+     */
+    Label getAddressLabel() {
+        return address;
+    }
+
+    /**
+     * Returns the Label component for the person's email.
+     * Intended for testing only.
+     *
+     * @return The Label for the email.
+     */
+    Label getEmailLabel() {
+        return email;
+    }
+
+    /**
+     * Returns the Label component for the person's status.
+     * Intended for testing only.
+     *
+     * @return The Label for the status.
+     */
+    Label getStatusLabel() {
+        return status;
+    }
+
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
