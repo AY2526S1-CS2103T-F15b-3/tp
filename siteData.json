@@ -119,6 +119,7 @@
         "delete-a-tag-group-dtg": "Delete a Tag Group : dtg",
         "editing-a-person-edit": "Editing a person : edit",
         "locating-persons-by-name-find": "Locating persons by name: find",
+        "filtering-persons-by-role-status-tag-group-filter": "Filtering persons by Role, Status, Tag Group: filter",
         "deleting-a-person-delete": "Deleting a person : delete",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
