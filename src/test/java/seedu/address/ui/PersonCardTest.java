@@ -8,14 +8,13 @@ import static seedu.address.testutil.TypicalPersons.AMY;
 
 import java.util.concurrent.CountDownLatch;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.framework.junit5.ApplicationExtension;
 
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
 import seedu.address.model.person.Person;
 
 @ExtendWith(ApplicationExtension.class)
