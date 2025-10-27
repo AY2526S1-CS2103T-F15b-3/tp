@@ -45,6 +45,32 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label status;
 
+    /**
+     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     */
+    public PersonCard(Person person, int displayedIndex) {
+        super(FXML);
+        this.person = person;
+        id.setText(displayedIndex + ". ");
+        name.setText(person.getName().fullName);
+        phone.setText(person.getPhone().value);
+        address.setText(person.getAddress().value);
+        email.setText(person.getEmail().value);
+        person.getRoles().stream()
+                .sorted(Comparator.comparing(role -> role.roleName))
+                .forEach(role -> roles.getChildren().add(new Label(role.roleName)));
+
+        person.getStatus().ifPresent(s -> {
+            status.setText(s.toString());
+            status.setVisible(true);
+            status.setManaged(true);
+        });
+
+        person.getTags().stream()
+                .sorted(Comparator.comparing(tag -> tag.tagFormat))
+                .forEach(tag -> tags.getChildren().add(new Label(tag.tagFormat)));
+    }
+
     // --- Getter methods for testing (package-private) ---
     // These methods are package-private and exist only for
     // PersonCardTest.java to access private @FXML fields.
@@ -108,30 +134,5 @@ public class PersonCard extends UiPart<Region> {
     Label getStatusLabel() {
         return status;
     }
-
-    /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
-     */
-    public PersonCard(Person person, int displayedIndex) {
-        super(FXML);
-        this.person = person;
-        id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
-        person.getRoles().stream()
-                .sorted(Comparator.comparing(role -> role.roleName))
-                .forEach(role -> roles.getChildren().add(new Label(role.roleName)));
-
-        person.getStatus().ifPresent(s -> {
-            status.setText(s.toString());
-            status.setVisible(true);
-            status.setManaged(true);
-        });
-
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagFormat))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagFormat)));
-    }
+    
 }
