@@ -110,6 +110,13 @@
       "headings": {
         "trackerguru-user-guide": "TrackerGuru User Guide",
         "quick-start": "Quick start",
+        "step-1-check-java-version": "Step 1: Check Java version",
+        "step-2-download-the-app": "Step 2: Download the app",
+        "step-3-create-your-app-s-home-folder": "Step 3: Create your app's home folder",
+        "step-4-run-the-app": "Step 4: Run the app",
+        "step-5-try-basic-commands": "Step 5: Try basic commands",
+        "step-6-help-guide": "Step 6: Help Guide",
+        "to-access-this-user-guide-anytime-from-the-app-use-the-help-command-a-help-window-will-open-up-containing-the-user-guide": "To access this User Guide anytime from the app, use the help command.\nA help window will open up, containing the User Guide.",
         "features": "Features",
         "viewing-help-help": "Viewing help : help",
         "adding-a-person-add": "Adding a person: add",
@@ -127,7 +134,10 @@
         "editing-the-data-file": "Editing the data file",
         "faq": "FAQ",
         "known-issues": "Known issues",
-        "command-summary": "Command summary"
+        "command-summary": "Command summary",
+        "glossary": "Glossary",
+        "java": "Java",
+        "gui": "GUI"
       },
       "headingKeywords": {}
     },
