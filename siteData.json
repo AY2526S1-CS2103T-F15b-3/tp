@@ -116,7 +116,6 @@
         "step-4-run-the-app": "Step 4: Run the app",
         "step-5-try-basic-commands": "Step 5: Try basic commands",
         "step-6-help-guide": "Step 6: Help Guide",
-        "to-access-this-user-guide-anytime-from-the-app-use-the-help-command-a-help-window-will-open-up-containing-the-user-guide": "To access this User Guide anytime from the app, use the help command.\nA help window will open up, containing the User Guide.",
         "features": "Features",
         "viewing-help-help": "Viewing help : help",
         "adding-a-person-add": "Adding a person: add",
@@ -137,7 +136,9 @@
         "command-summary": "Command summary",
         "glossary": "Glossary",
         "java": "Java",
-        "gui": "GUI"
+        "gui": "GUI",
+        "role": "Role",
+        "status": "Status"
       },
       "headingKeywords": {}
     },
