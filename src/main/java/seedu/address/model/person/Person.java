@@ -165,15 +165,17 @@ public class Person {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
+        final ToStringBuilder builder = new ToStringBuilder(this)
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
-                .add("roles", roles)
-                .add("status", status.map(Object::toString).orElse("N/A"))
-                .add("tags", tags)
-                .toString();
+                .add("roles", roles);
+
+        status.ifPresent(s -> builder.add("status", s));
+
+        builder.add("tags", tags);
+        return builder.toString();
     }
 
 }
