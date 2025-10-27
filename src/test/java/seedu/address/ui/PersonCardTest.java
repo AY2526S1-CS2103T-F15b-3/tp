@@ -48,7 +48,7 @@ public class PersonCardTest {
     @Test
     public void display_personWithoutStatus_statusLabelIsHidden() throws InterruptedException {
         // This test "covers" a person WITH no status
-        Person personWithoutStatus = AMY; 
+        Person personWithoutStatus = AMY;
 
         final CountDownLatch latch = new CountDownLatch(1);
 
