@@ -1,0 +1,24 @@
+@startuml
+skin rose
+!include style.puml
+
+start
+:User executes dtg command;
+
+if () then ([tag group exists])
+  if () then ([tag group in use])
+    MODEL_COLOR_T1:Throw CommandException;
+    :Display error message:\n"This tag group is currently in use\nand cannot be deleted.";
+    stop
+  else ([not in use])
+    MODEL_COLOR_T1:Delete tag group from Model;
+    :Display success message:\n"Tag group deleted: {tagGroupName}";
+    stop
+  endif
+else ([does not exist])
+  MODEL_COLOR_T1:Throw CommandException;
+  :Display error message:\n"The tag group {tagGroupName}\ndoes not exist.";
+  stop
+endif
+
+@enduml

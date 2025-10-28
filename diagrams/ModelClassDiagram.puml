@@ -21,6 +21,7 @@ Class Name
 Class Phone
 Class Role
 Class Tag
+Class TagGroup
 
 
 Class I #FFFFFF
@@ -39,6 +40,7 @@ ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniquePersonList
+AddressBook *--> "*" TagGroup
 UniquePersonList --> "~* all" Person
 Person *--> Name
 Person *--> Phone
@@ -47,6 +49,7 @@ Person *--> Address
 Person *--> "*" Role
 Person *--> "*" Tag
 Person *--> "0..1" Status
+Tag --> "0..1" TagGroup
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
