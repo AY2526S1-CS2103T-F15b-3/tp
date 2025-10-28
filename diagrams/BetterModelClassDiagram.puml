@@ -5,16 +5,21 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Class "<<enumeration>>\nStatus" as Status
+Class TagGroup
 
 AddressBook *-right-> "1" UniquePersonList
 AddressBook *-right-> "1" UniqueTagList
 AddressBook *-right-> "1" UniqueRoleList
+AddressBook *-down-> "*" TagGroup
 UniqueTagList -[hidden]down- UniquePersonList
 
 UniqueTagList -right-> "*" Tag
 UniquePersonList -right-> Person
 
 Person *-up-> "*" Tag
+Person *-up-> "*" Role
+
+Tag --> "0..1" TagGroup : references
 
 Person *--> Name
 Person *--> Phone
@@ -24,6 +29,5 @@ Person *--> "0..1" Status
 
 UniqueRoleList -right-> "*" Role
 UniqueRoleList -[hidden]down- UniquePersonList
-Person *-up-> "*" Role
 
 @enduml
