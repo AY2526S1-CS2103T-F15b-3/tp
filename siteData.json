@@ -138,8 +138,11 @@
         "glossary": "Glossary",
         "java": "Java",
         "gui": "GUI",
+        "person": "Person",
         "role": "Role",
-        "status": "Status"
+        "status": "Status",
+        "tag": "Tag",
+        "tag-group": "Tag Group"
       },
       "headingKeywords": {}
     },
