@@ -54,7 +54,6 @@
         "duplicate-handling": "Duplicate Handling",
         "tag-group-management-feature": "Tag Group Management feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -65,6 +64,7 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
+        "creating-and-managing-tag-groups": "Creating and managing tag groups",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
