@@ -49,12 +49,13 @@ HelpWindow --|> UiPart
 
 PersonCard ..> Model
 UiManager -right-> Logic
-MainWindow -left-> Logic
+MainWindow -right-> Logic
 
 PersonListPanel -[hidden]left- HelpWindow
 HelpWindow -[hidden]left- CommandBox
 CommandBox -[hidden]left- ResultDisplay
 ResultDisplay -[hidden]left- StatusBarFooter
-
-MainWindow -[hidden]-|> UiPart
+UiManager -[hidden]right- Logic
+UiManager -[hidden]right- Logic
+UiManager -[hidden]right- Logic
 @enduml

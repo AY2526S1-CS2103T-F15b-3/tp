@@ -35,6 +35,7 @@ XYZCommand -up-|> Command
 LogicManager .left.> Command : <<call>>
 
 LogicManager --> Model
+
 LogicManager --> Storage
 Storage --[hidden] Model
 Command .[hidden]up.> Storage
