@@ -49,24 +49,6 @@ deactivate AddressBookParser
 LogicManager -> AddCommand : execute(m)
 activate AddCommand
 
-AddCommand -> ModelManager : hasPerson(toAdd)
-activate ModelManager
-
-ModelManager -> AddressBook : hasPerson(toAdd)
-activate AddressBook
-
-AddressBook -> UniquePersonList : contains(toAdd)
-activate UniquePersonList
-
-UniquePersonList --> AddressBook : false
-deactivate UniquePersonList
-
-AddressBook --> ModelManager : false
-deactivate AddressBook
-
-ModelManager --> AddCommand : false
-deactivate ModelManager
-
 AddCommand -> ModelManager : hasSamePhoneNumber(toAdd)
 activate ModelManager
 
