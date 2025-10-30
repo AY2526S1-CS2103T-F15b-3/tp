@@ -65,6 +65,8 @@
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
         "creating-and-managing-tag-groups": "Creating and managing tag groups",
+        "creating-and-managing-roles": "Creating and managing roles",
+        "filtering-by-tag-groups-status-or-roles": "Filtering by tag groups, status or roles",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
