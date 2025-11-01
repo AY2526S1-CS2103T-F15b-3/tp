@@ -8,7 +8,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.MatchesRoleStatusTagGroupPredicate;
 
 /**
- * Filters and lists all persons in the address book whose role, status, and/or Tag Groups
+ * Filters and lists all persons in the address book whose role, status, and/or specific Tags
  * match the specified keywords.
  */
 public class FilterCommand extends Command {
@@ -16,9 +16,9 @@ public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = "To filter "
-            + "contacts by role, status, and/or Tag Group, please follow the given format: "
-            + COMMAND_WORD + " [r/ROLE]... [s/STATUS]... [tg/TAGGROUP]...\n"
-            + "Example: " + COMMAND_WORD + " r/buyer s/completed tg/location";
+            + "contacts by role, status, and/or specific tags, please follow the given format: "
+            + COMMAND_WORD + " [r/ROLE]... [s/STATUS]... [t/TAG]...\n"
+            + "Example: " + COMMAND_WORD + " r/buyer s/completed t/budget.500k t/urgent.high";
 
     private final MatchesRoleStatusTagGroupPredicate predicate;
 

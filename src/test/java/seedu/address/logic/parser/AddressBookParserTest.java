@@ -32,7 +32,7 @@ import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
 import seedu.address.model.person.Status;
-import seedu.address.model.tag.TagGroup;
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
@@ -89,12 +89,12 @@ public class AddressBookParserTest {
     public void parseCommand_filter() throws Exception {
         Set<Role> roles = Set.of(new Role("seller"), new Role("buyer"));
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Set.of(new TagGroup("location"));;
+        Set<Tag> tags = Set.of(new Tag("location.downtown"));
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         FilterCommand command = (FilterCommand) parser.parseCommand(
-                FilterCommand.COMMAND_WORD + " r/seller s/COMPLETED r/buyer tg/location");
+                FilterCommand.COMMAND_WORD + " r/seller s/COMPLETED r/buyer t/location.downtown");
         assertEquals(new FilterCommand(predicate), command);
     }
 

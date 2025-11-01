@@ -18,7 +18,7 @@ import seedu.address.logic.commands.FilterCommand;
 import seedu.address.model.person.MatchesRoleStatusTagGroupPredicate;
 import seedu.address.model.person.Role;
 import seedu.address.model.person.Status;
-import seedu.address.model.tag.TagGroup;
+import seedu.address.model.tag.Tag;
 
 public class FilterCommandParserTest {
 
@@ -29,10 +29,10 @@ public class FilterCommandParserTest {
         Set<Role> roles = new HashSet<>();
         roles.add(new Role(VALID_ROLE_CUSTOMER));
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
 
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand expectedCommand = new FilterCommand(predicate);
 
         assertParseSuccess(parser, ROLE_DESC_CUSTOMER, expectedCommand);
@@ -43,10 +43,10 @@ public class FilterCommandParserTest {
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = new HashSet<>();
         statuses.add(Status.PENDING);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
 
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand expectedCommand = new FilterCommand(predicate);
 
         assertParseSuccess(parser, STATUS_DESC_PENDING, expectedCommand);
@@ -58,42 +58,42 @@ public class FilterCommandParserTest {
         roles.add(new Role(VALID_ROLE_CUSTOMER));
         Set<Status> statuses = new HashSet<>();
         statuses.add(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
 
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand expectedCommand = new FilterCommand(predicate);
 
         assertParseSuccess(parser, ROLE_DESC_CUSTOMER + STATUS_DESC_COMPLETED, expectedCommand);
     }
 
     @Test
-    public void parse_validTagGroup_success() {
+    public void parse_validTag_success() {
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = new HashSet<>();
-        tagGroups.add(new TagGroup("location"));
+        Set<Tag> tags = new HashSet<>();
+        tags.add(new Tag("location.downtown"));
 
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand expectedCommand = new FilterCommand(predicate);
 
-        assertParseSuccess(parser, " tg/location", expectedCommand);
+        assertParseSuccess(parser, " t/location.downtown", expectedCommand);
     }
 
     @Test
-    public void parse_multipleTagGroups_success() {
+    public void parse_multipleTags_success() {
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = new HashSet<>();
-        tagGroups.add(new TagGroup("location"));
-        tagGroups.add(new TagGroup("department"));
+        Set<Tag> tags = new HashSet<>();
+        tags.add(new Tag("location.downtown"));
+        tags.add(new Tag("budget.500k"));
 
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand expectedCommand = new FilterCommand(predicate);
 
-        assertParseSuccess(parser, " tg/location tg/department", expectedCommand);
+        assertParseSuccess(parser, " t/location.downtown t/budget.500k", expectedCommand);
     }
 
     @Test
@@ -102,16 +102,16 @@ public class FilterCommandParserTest {
         roles.add(new Role(VALID_ROLE_CUSTOMER));
         Set<Status> statuses = new HashSet<>();
         statuses.add(Status.COMPLETED);
-        Set<TagGroup> tagGroups = new HashSet<>();
-        tagGroups.add(new TagGroup("location"));
+        Set<Tag> tags = new HashSet<>();
+        tags.add(new Tag("urgent.high"));
 
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand expectedCommand = new FilterCommand(predicate);
 
         assertParseSuccess(
                 parser,
-                ROLE_DESC_CUSTOMER + STATUS_DESC_COMPLETED + " tg/location",
+                ROLE_DESC_CUSTOMER + STATUS_DESC_COMPLETED + " t/urgent.high",
                 expectedCommand);
     }
 
