@@ -230,8 +230,8 @@ Filters the current list for persons matching the specified parameters.
     * e.g. `r/buyer` will match `r/Buyer`
 * You can filter with any combination of: **Role(s)**, **Status(es)**, **TagGroup(s)**
 * You may specify multiple Roles, Statuses, and Tag Groups
+* At least one optional field must be provided
 * A person will be shown if they match **any** of the specified parameters
-* If no parameters are provided, no filtering will occur
 
 </box>
 
