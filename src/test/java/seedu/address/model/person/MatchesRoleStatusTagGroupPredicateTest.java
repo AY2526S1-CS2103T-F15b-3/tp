@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.tag.TagGroup;
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 class MatchesRoleStatusTagGroupPredicateTest {
@@ -18,9 +18,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("buyer").build();
         Set<Role> roles = Set.of(new Role("buyer"));
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person));
     }
@@ -31,9 +31,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("Buyer").build();
         Set<Role> roles = Set.of(new Role("buyer")); // lowercased
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person), "Should match regardless of role name casing");
     }
@@ -44,9 +44,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("manager").build();
         Set<Role> roles = Set.of(new Role("MANAGER"));
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person), "Should match even if role case differs");
     }
@@ -57,9 +57,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("Admin", "Supervisor").build();
         Set<Role> roles = Set.of(new Role("admin"));
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person), "Case-insensitive role match should still return true");
     }
@@ -70,9 +70,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("Buyer").build();
         Set<Role> roles = Set.of(new Role("Seller"));
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertFalse(predicate.test(person), "Should return false if roles differ even ignoring case");
     }
@@ -82,9 +82,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withStatus(Status.COMPLETED).build();
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person));
     }
@@ -94,9 +94,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("buyer").withStatus(Status.COMPLETED).build();
         Set<Role> roles = Set.of(new Role("buyer"));
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person));
     }
@@ -106,9 +106,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withTags("location.downtown").build();
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Set.of(new TagGroup("location"));
+        Set<Tag> tags = Set.of(new Tag("location.downtown"));
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person));
     }
@@ -118,9 +118,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withTags("location.downtown", "department.sales").build();
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Set.of(new TagGroup("location"));
+        Set<Tag> tags = Set.of(new Tag("location.downtown"));
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertTrue(predicate.test(person));
     }
@@ -130,9 +130,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withTags("urgent").build();
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Set.of(new TagGroup("location"));
+        Set<Tag> tags = Set.of(new Tag("location.downtown"));
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertFalse(predicate.test(person));
     }
@@ -142,9 +142,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("buyer").withStatus(Status.PENDING).build();
         Set<Role> roles = Set.of(new Role("seller"));
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertFalse(predicate.test(person));
     }
@@ -154,9 +154,9 @@ class MatchesRoleStatusTagGroupPredicateTest {
         Person person = new PersonBuilder().withRoles("buyer").build();
         Set<Role> roles = Collections.emptySet();
         Set<Status> statuses = Collections.emptySet();
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
 
         assertFalse(predicate.test(person));
     }
@@ -165,18 +165,18 @@ class MatchesRoleStatusTagGroupPredicateTest {
     void test_equals() {
         Set<Role> roles1 = Set.of(new Role("buyer"));
         Set<Status> statuses1 = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups1 = Set.of(new TagGroup("location"));
+        Set<Tag> tags1 = Set.of(new Tag("location.downtown"));
 
         Set<Role> roles2 = Set.of(new Role("seller"));
         Set<Status> statuses2 = Set.of(Status.PENDING);
-        Set<TagGroup> tagGroups2 = Set.of(new TagGroup("department"));
+        Set<Tag> tags2 = Set.of(new Tag("department.sales"));
 
         MatchesRoleStatusTagGroupPredicate predicate1 =
-                new MatchesRoleStatusTagGroupPredicate(roles1, statuses1, tagGroups1);
+                new MatchesRoleStatusTagGroupPredicate(roles1, statuses1, tags1);
         MatchesRoleStatusTagGroupPredicate predicate2 =
-                new MatchesRoleStatusTagGroupPredicate(roles1, statuses1, tagGroups1);
+                new MatchesRoleStatusTagGroupPredicate(roles1, statuses1, tags1);
         MatchesRoleStatusTagGroupPredicate predicate3 =
-                new MatchesRoleStatusTagGroupPredicate(roles2, statuses2, tagGroups2);
+                new MatchesRoleStatusTagGroupPredicate(roles2, statuses2, tags2);
 
         // same object
         assertTrue(predicate1.equals(predicate1));

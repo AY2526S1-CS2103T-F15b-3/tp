@@ -22,7 +22,7 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.MatchesRoleStatusTagGroupPredicate;
 import seedu.address.model.person.Role;
 import seedu.address.model.person.Status;
-import seedu.address.model.tag.TagGroup;
+import seedu.address.model.tag.Tag;
 
 public class FilterCommandTest {
     private Model model = new ModelManager(getTestAddressBook(), new UserPrefs());
@@ -32,16 +32,16 @@ public class FilterCommandTest {
     public void equals() {
         Set<Role> roles1 = Set.of(new Role("buyer"));
         Set<Status> statuses1 = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups1 = Collections.emptySet();
+        Set<Tag> tags1 = Collections.emptySet();
 
         Set<Role> roles2 = Set.of(new Role("seller"));
         Set<Status> statuses2 = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups2 = Collections.emptySet();
+        Set<Tag> tags2 = Collections.emptySet();
 
         MatchesRoleStatusTagGroupPredicate firstPredicate =
-                new MatchesRoleStatusTagGroupPredicate(roles1, statuses1, tagGroups1);
+                new MatchesRoleStatusTagGroupPredicate(roles1, statuses1, tags1);
         MatchesRoleStatusTagGroupPredicate secondPredicate =
-                new MatchesRoleStatusTagGroupPredicate(roles2, statuses2, tagGroups2);
+                new MatchesRoleStatusTagGroupPredicate(roles2, statuses2, tags2);
 
         FilterCommand firstFilterCommand = new FilterCommand(firstPredicate);
         FilterCommand secondFilterCommand = new FilterCommand(secondPredicate);
@@ -79,9 +79,9 @@ public class FilterCommandTest {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
         Set<Role> roles = Set.of(new Role("seller"));
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand command = new FilterCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -92,9 +92,9 @@ public class FilterCommandTest {
     public void toStringMethod() {
         Set<Role> roles = Set.of(new Role("seller"));
         Set<Status> statuses = Set.of(Status.COMPLETED);
-        Set<TagGroup> tagGroups = Collections.emptySet();
+        Set<Tag> tags = Collections.emptySet();
         MatchesRoleStatusTagGroupPredicate predicate =
-                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tagGroups);
+                new MatchesRoleStatusTagGroupPredicate(roles, statuses, tags);
         FilterCommand filterCommand = new FilterCommand(predicate);
         String expected = FilterCommand.class.getCanonicalName() + "{predicate=" + predicate + "}";
         assertEquals(expected, filterCommand.toString());
