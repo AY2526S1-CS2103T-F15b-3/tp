@@ -185,9 +185,9 @@ Edits an existing person in the address book.
 <box type="tip" seamless>
 
 **Tips**:
-* To remove all roles: type `r/` without any value.
-* To remove all tags: type `t/` without any value.
-* To remove the status: type `s/` without any value.
+* To remove all roles: type `r/` ONLY without any value.
+* To remove all tags: type `t/` ONLY without any value.
+* To remove the status: type `s/` ONLY without any value.
 * `name`, `phone`, `email`, and `address` must always contain a value.
 
 </box>
