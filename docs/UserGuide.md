@@ -11,6 +11,7 @@ TrackerGuru is a **keyboard-focused desktop app for property agents** to efficie
 * Property agents who need to manage various contact types involved in their deals such as *buyers*, *sellers* or other stakeholders.
 * Users are assumed to be comfortable typing fast.
 * No prior knowledge of programming or Java is required, except following download instructions.
+* If you are unfamiliar with Command Formats, we suggest reading our Command Format Notes [here](#features)
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -132,7 +133,9 @@ In this example:
   
 <box type="tip" seamless>
 
-**Note:** Tag VALUES (the part after the dot) can contain symbols like hyphens (`-`), underscores (`_`), and dots (`.`) for more flexible categorization. 
+**Note**: 
+
+Tag VALUES (the part after the dot) can contain symbols like hyphens (`-`), underscores (`_`), and dots (`.`) for more flexible categorization. 
 
 However, it has to start with alphanumeric, and can contain any combination after. For example, `t/price.1.5M-2M` is valid, but `t/price.-2M` is not.
 
@@ -175,21 +178,29 @@ Edits an existing person in the address book.
     - `INDEX` refers to the number shown beside each person in the displayed list.
     - `INDEX` **must be a positive integer** 1, 2, 3, …​
 * At least one optional field must be provided for the edit to take effect.
-
-**Field Updates**:
 * The person's `name`, `phone`, `email`, and `address` will be replaced with the new values you enter.
-* Editing **roles** replace all existing roles: roles are not **cumulative**.
-    * You can specify multiple new roles using multiple `r/` prefixes (e.g. `r/Buyer r/Investor`).
-* Editing **status** replaces the existing one.
-    * Status must be either **Pending** or **Completed** (case-insensitive).
-* Editing **tags** replaces all existing tags: tags are **not cumulative**.
 
-**Removing all values from a field**:
+</box>
+
+<box type="tip" seamless>
+
+**Tips**:
 * To remove all roles: type `r/` without any value.
 * To remove all tags: type `t/` without any value.
 * To remove the status: type `s/` without any value.
 * `name`, `phone`, `email`, and `address` must always contain a value.
 
+</box>
+
+<box type="important" seamless>
+
+**Caution**:
+* Editing **roles** replace all existing roles: roles are not **cumulative**.
+    * You can specify multiple new roles using multiple `r/` prefixes (e.g. `r/Buyer r/Investor`).
+* Editing **tags** replaces all existing tags: tags are **not cumulative**.
+    * You can specify multiple tags using multiple `/t` prefixes (e.g. `t/priority t/property.HDB`).
+* Editing **status** replaces the existing one.
+    * Status must be either **Pending** or **Completed** (case-insensitive).
 </box>
 
 Examples:
