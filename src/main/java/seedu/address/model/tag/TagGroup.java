@@ -12,7 +12,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class TagGroup {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "TagGroups should be alphanumeric and contain at least one character.";
+            "TagGroups should be alphanumeric and contain at least one character (no spaces).";
 
     public static final String VALIDATION_REGEX = "^[A-Za-z0-9]+$";
 

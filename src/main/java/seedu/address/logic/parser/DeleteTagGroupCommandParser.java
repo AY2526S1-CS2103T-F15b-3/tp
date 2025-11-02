@@ -25,9 +25,8 @@ public class DeleteTagGroupCommandParser implements Parser<DeleteTagGroupCommand
         }
 
         if (!TagGroup.isValidTagGroupName(trimmedArgs)) {
-            throw new ParseException("Invalid Tag Group name. "
-                    + "Tag Group names should only contain alphanumeric characters and spaces, "
-                    + "and it should not be blank.");
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, TagGroup.MESSAGE_CONSTRAINTS));
         }
 
         TagGroup toDelete = new TagGroup(trimmedArgs);
