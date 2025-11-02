@@ -11,8 +11,8 @@ public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS = "To utilise Tag Groups, Tags should "
             + "be in the format GROUP.VALUE\n"
-            + "where both GROUP is alphanumeric and VALUE can contain alphanumeric characters,"
-            + "dots, hyphens, and underscores (no spaces).\n"
+            + "where GROUP is alphanumeric and VALUE can contain alphanumeric characters, "
+            + "dots, hyphens, and underscores (no spaces). VALUE has to start with alphanumeric.\n"
             + "OR it could be a simple Tag with any alphanumeric text.\n"
             + "Tags are single word.";
 
