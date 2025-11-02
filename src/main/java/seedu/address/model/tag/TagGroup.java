@@ -26,7 +26,7 @@ public class TagGroup {
     public TagGroup(String groupName) {
         requireNonNull(groupName);
         checkArgument(isValidTagGroupName(groupName), MESSAGE_CONSTRAINTS);
-        this.groupName = groupName;
+        this.groupName = groupName.toUpperCase();
     }
 
     /**

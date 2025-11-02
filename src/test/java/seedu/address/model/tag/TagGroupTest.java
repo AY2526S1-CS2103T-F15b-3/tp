@@ -63,8 +63,8 @@ public class TagGroupTest {
 
     @Test
     public void getName() {
-        TagGroup group1 = new TagGroup("propertyType");
-        assertTrue(group1.getName().equals("propertyType"));
+        TagGroup group1 = new TagGroup("property");
+        assertTrue(group1.getName().equals("PROPERTY"));
     }
 
     @Test
@@ -76,7 +76,7 @@ public class TagGroupTest {
 
     @Test
     public void toString_validTagGroupName_returnsGroupName() {
-        TagGroup group = new TagGroup("propertyType");
-        assertEquals("propertyType", group.toString());
+        TagGroup group = new TagGroup("property");
+        assertEquals("PROPERTY", group.toString());
     }
 }
