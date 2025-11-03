@@ -1071,12 +1071,23 @@ Testers should verify that error and success messages match the described behavi
        **Expected:** For data resilience, TrackerGuru commands still work normally with Tag Group `PropertyType` and does not affect normal operations.
    Only when listing using `tg`, `PropertyType` will not appear.
 
-## **Appendix: Future Enhancement**
+## **Appendix: Planned Enhancements**
 
 Team size: 5
 
-1. **Allow Optional Contact Fields in Add Command**: Currently, the add command requires users to input all four contact details: name, phone number, email, and address. This rigid requirement can be inconvenient for property agents, who often have only partial information. We plan to enhance the add command to allow these fields to be optional. Users will be able to add a new contact with any combination of available details, such as only a name and phone number. Missing fields will be stored as empty values and displayed as N/A in the contact list. 
-This enhancement will provide greater flexibility and a smoother user experience, allowing agents to store and manage client information more conveniently without being restricted by mandatory fields.
+1. **Allow Optional Contact Fields in Add Command**: Currently, the add command requires all four fields (name, phone, email, address) to be provided: `add n/John Doe p/98765432 e/johnd@example.com a/123 Street.` We plan to make phone, email and address optional, allowing commands like
+   add n/John Doe p/98765432 where missing fields display as "N/A". 
 
-2. **Support Incremental Editing for Roles, Statuses, and Tags**: Currently, the edit command overwrites all existing fields such as roles (r/), statuses (s/), and tags (t/) whenever these parameters are provided. This causes all prior data to be lost, even if the user’s intention was only to add or remove a single value.
-We plan to enhance the edit command to differentiate between different types of edit operations, namely adding, removing, and replacing data. By distinguishing between these different edit command types, this enhancement will prevent accidental data loss, provide users with finer control over their edits and make the command behavior more intuitive for everyday use.
+
+2. **Support Incremental Editing for Roles, Statuses, and Tags**: Currently, edit 1 r/Investor replaces all existing roles, causing data loss if the contact previously had roles like [Buyer] [Seller]. We plan to introduce new prefixes: `r+/Investor` to add roles, `r-/Buyer` to remove specific roles,
+   and keep `r/Agent` for replacing all roles. The same syntax will apply to tags (t+/, t-/) and status (s+/, s-/).
+
+
+3. **Improve Handling of Corrupted or Invalid Data Entries**: Currently, when corrupted or invalid data is detected in the storage file, the application throws a warning and clears the entire file. We plan to enhance this by detecting, isolating and reporting only the corrupted entries during data loading. 
+The application will retain and process all valid data while displaying clear warnings that specify which entries are corrupted and why. This improvement increases data resilience, usability and debugging efficiency.
+
+
+4. **Separate Command for Listing Tag Groups**: Currently, the tg command has dual behavior - tg TAGGROUP_NAME creates a Tag Group while tg (without arguments) lists all existing Tag Groups. This dual behavior can be confusing as the same command does different things based on whether arguments are provided. We plan to introduce a separate ltg command specifically for listing Tag Groups.
+
+    - Current behavior: tg PropertyType → Creates Tag Group "PropertyType", tg → Lists all Tag Groups
+    - Planned behavior: tg PropertyType → Creates Tag Group "PropertyType" (unchanged), ltg → Lists all Tag Groups, tg → Shows error message directing users to use ltg for listing
