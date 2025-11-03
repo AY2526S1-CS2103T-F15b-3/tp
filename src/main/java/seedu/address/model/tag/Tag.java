@@ -14,6 +14,7 @@ public class Tag {
             + "where GROUP is alphanumeric and VALUE can contain alphanumeric characters, "
             + "dots, hyphens, and underscores (no spaces). VALUE has to start with alphanumeric.\n"
             + "OR it could be a simple Tag with any alphanumeric text.\n"
+            + "Use 't/' alone to clear all tags when editing.\n"
             + "Tags are single word.";
 
     /**
