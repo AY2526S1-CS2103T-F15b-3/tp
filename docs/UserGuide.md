@@ -160,9 +160,9 @@ Adds a person (see [definition](#person)) to the address book.
 * Role is **optional**. You can add multiple roles by repeating `r/ROLE` but a contact made with **duplicate roles** will throw an error message. See [Role](#role) in the glossary for more details.
 <br> Example: `r/Buyer r/Investor` is acceptable, `r/Buyer r/buyer` is unacceptable.
 
-* Status is **optional**. If provided, it must be `Pending` or `Completed` (case-insensitive). Each person can have only one status.
+* Status is **optional**. If provided, it must be `Pending` or `Completed` (case-insensitive). Each person can have only one status. See [Status](#status) in the glossary for more details.
 
-* Tags are **optional** and can be formatted as either:
+* Tags are **optional**. See [Tag](#tag) in the glossary for more details. It can be formatted as either:
     - `t/GROUP.VALUE`: both `GROUP` and `VALUE` are alphanumeric
     -  `t/TAG`: a single alphanumeric tag
 </box>
