@@ -445,7 +445,6 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 **A**: Follow the [Quick Start: Section](#quick-start) to install the app on the new computer. Then, locate the new TrackerGuru home folder and replace its data folder with the data folder from your old computer.
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-after: always;"></div>
 
 ## Known issues
 
