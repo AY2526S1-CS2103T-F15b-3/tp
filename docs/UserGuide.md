@@ -164,7 +164,7 @@ Adds a person (see [definition](#person)) to the address book.
 
 * Tags are **optional**. See [Tag](#tag) in the glossary for more details. It can be formatted as either:
     - `t/GROUP.VALUE`: both `GROUP` and `VALUE` are alphanumeric
-    -  `t/TAG`: a single alphanumeric tag
+    - `t/TAG`: a single alphanumeric tag
 </box>
 
 Examples:
@@ -445,7 +445,6 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 **A**: Follow the [Quick Start: Section](#quick-start) to install the app on the new computer. Then, locate the new TrackerGuru home folder and replace its data folder with the data folder from your old computer.
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-after: always;"></div>
 
 ## Known issues
 
@@ -535,7 +534,6 @@ A Tag can also optionally contain a **Tag Group** (see [definition](#tag-group))
 
 **Note:**
 * TrackerGuru must already contain the tag group for a tag to be assigned under said group.
-  * Refer to [creating a Tag Group](#creating-a-tag-group--tg).
 
 </box>
 
