@@ -1083,7 +1083,7 @@ Team size: 5
    and keep `r/Agent` for replacing all roles. The same syntax will apply to tags (t+/, t-/) and status (s+/, s-/).
 
 
-3. **Improve Handling of Corrupted or Invalid Data Entries**: Currently, when corrupted or invalid data is detected in the storage file, the application throws a warning and clears the entire file. We plan to enhance this by detecting, isolating and reporting only the corrupted entries during data loading. 
+3. **Improve Handling of Corrupted or Invalid Data Entries**: Currently, when corrupted or invalid data is detected in the storage file, the application throws a warning and loads an empty storage file. We plan to enhance this by detecting, isolating and reporting only the corrupted entries during data loading. 
 The application will retain and process all valid data while displaying clear warnings that specify which entries are corrupted and why. This improvement increases data resilience, usability and debugging efficiency.
 
 
