@@ -535,7 +535,7 @@ A Tag can also optionally contain a **Tag Group** (see [definition](#tag-group))
 
 **Note:**
 * TrackerGuru must already contain the tag group for a tag to be assigned under said group.
-  * Refer to [creating a Tag Group](#Creating-a-tag-group--tg).
+  * Refer to [creating a Tag Group](#creating-a-tag-group--tg).
 
 </box>
 
