@@ -51,7 +51,7 @@ public class TagGroupCommandTest {
 
     @Test
     public void execute_createDuplicateTagGroup_throwsCommandException() throws CommandException {
-        TagGroup group = new TagGroup("propertyType");
+        TagGroup group = new TagGroup("property");
         modelStub.tagGroups.add(group);
         TagGroupCommand command = new TagGroupCommand(group);
 
@@ -68,13 +68,13 @@ public class TagGroupCommandTest {
 
     @Test
     public void execute_listExistingTagGroups_success() throws CommandException {
-        TagGroup group = new TagGroup("propertyType");
+        TagGroup group = new TagGroup("property");
         modelStub.tagGroups.add(group);
 
         TagGroupCommand command = new TagGroupCommand(null);
         CommandResult result = command.execute(modelStub);
 
-        String expectedOutput = String.format(MESSAGE_LIST_SUCCESS, "propertyType");
+        String expectedOutput = String.format(MESSAGE_LIST_SUCCESS, "PROPERTY");
         assertEquals(expectedOutput, result.getFeedbackToUser());
     }
 

@@ -81,9 +81,9 @@ public class TagTest {
 
     @Test
     public void getterMethods_groupedTag() {
-        Tag tag = new Tag("propertyType.HDB");
-        assertEquals("propertyType.HDB", tag.getTagFormat());
-        assertEquals(new TagGroup("propertyType"), tag.getGroup());
+        Tag tag = new Tag("property.HDB");
+        assertEquals("PROPERTY.HDB", tag.getTagFormat());
+        assertEquals(new TagGroup("property"), tag.getGroup());
         assertEquals("HDB", tag.getValue());
     }
 
@@ -131,7 +131,7 @@ public class TagTest {
     @Test
     public void toString_returnsTagName() {
         Tag tag = new Tag("location.Sengkang");
-        assertEquals("[location.Sengkang]", tag.toString());
+        assertEquals("[LOCATION.Sengkang]", tag.toString());
     }
 
 }
