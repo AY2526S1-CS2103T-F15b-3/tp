@@ -11,7 +11,7 @@ public class Role {
     public static final String MESSAGE_CONSTRAINTS =
             "Roles should only contain alphanumeric characters.\n"
             + "Space, hyphens and underscores are allowed except as the first character.\n"
-            + "No blank inputs allowed";
+            + "No blank inputs allowed when adding a role. Use 'r/' alone to clear all roles when editing.";
     /*
      * The first and last character of the role must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
