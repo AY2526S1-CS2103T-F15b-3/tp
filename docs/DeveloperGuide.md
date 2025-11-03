@@ -223,9 +223,11 @@ Step 3. If any of the checks return true (e.g. the phone number 12345678 already
 
 Step 4. If all checks pass (return false), the new contact is successfully added to the address book.
 
-The following sequence diagram shows how the duplicate phone number check works during the execution of an add command (the same pattern applies to email checks):
+The following sequence diagrams shows how the duplicate phone number check works during the execution of an add command (the same pattern applies to email checks):
 
-<puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram.puml"/>
+<puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram-Logic.puml"/>
+
+<puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram-Model.puml"/>
 
 <box type="info" seamless>
 
