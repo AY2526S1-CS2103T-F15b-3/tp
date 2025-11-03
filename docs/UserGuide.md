@@ -16,6 +16,8 @@ TrackerGuru is a **keyboard-focused desktop app for property agents** to efficie
 <!-- * Table of Contents -->
 <page-nav-print />
 
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
@@ -53,6 +55,8 @@ _Refer to the [Features: Section](#features) below for more details and commands
 
 To access this User Guide anytime from the app, use the **`help`** command.
 
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
@@ -84,6 +88,8 @@ Before proceeding with the commands in this section, please take a moment to rev
 <box type="warning" seamless>
 When using the PDF version of this document, note that copying multiple-line commands may remove spaces around line breaks. Please check that spaces around line breaks are preserved before pasting.
 </box>
+
+<div style="page-break-after: always;"></div>
 
 ### Understanding Roles
 
@@ -140,6 +146,8 @@ Tag VALUES (the part after the dot) can contain symbols like hyphens (`-`), unde
 However, it has to start with alphanumeric, and can contain any combination after. For example, `t/price.1.5M-2M` is valid, but `t/price.-2M` is not.
 
 </box>
+
+<div style="page-break-after: always;"></div>
 
 ### Adding a person: `add`
 #### Command: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [r/ROLE]…​ [s/STATUS] [t/TAG]…​`
@@ -250,6 +258,8 @@ Examples:
 * `filter r/buyer` returns all persons with the role **buyer**
 * `filter s/pending s/completed` returns all persons whose status is **pending** or **completed**
 * `filter r/buyer s/completed tg/price` returns all persons who are **buyers**, or whose status is **completed**, or has a tag whose Tag Group is **price**
+
+<div style="page-break-after: always;"></div>
 
 ### Deleting a person : `delete`
 #### Command: `delete INDEX`
@@ -441,6 +451,7 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Command summary
 
