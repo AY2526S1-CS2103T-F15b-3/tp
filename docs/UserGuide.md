@@ -142,7 +142,7 @@ However, it has to start with alphanumeric, and can contain any combination afte
 </box>
 
 ### Adding a person: `add`
-###### Command: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [r/ROLE]…​ [s/STATUS] [t/TAG]…​`
+#### Command: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [r/ROLE]…​ [s/STATUS] [t/TAG]…​`
 
 Adds a person (see [definition](#person)) to the address book.
 
@@ -166,7 +166,7 @@ Examples:
 * `add n/Alex Tan p/87654321 e/alex@example.com a/Blk 456 r/Buyer r/Investor s/Pending`
 
 ### Editing a person : `edit`
-###### Command: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/ROLE]…​ [s/STATUS] [t/TAG]…​`
+#### Command: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/ROLE]…​ [s/STATUS] [t/TAG]…​`
 
 Edits an existing person in the address book.
 
@@ -211,7 +211,7 @@ Examples:
 *  `edit 4 s/` Removes the status from the 4th person.
 
 ### Finding persons by name: `find`
-###### Command: `find KEYWORD [MORE_KEYWORDS]…​`
+#### Command: `find KEYWORD [MORE_KEYWORDS]…​`
 
 Finds persons whose names contain any of the provided keywords.
 
@@ -231,7 +231,7 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
 
 ### Filtering persons by Role, Status, Tag Group: `filter`
-###### Command: `filter [r/ROLE]…​ [s/STATUS]…​ [tg/TAG_GROUP]…​`
+#### Command: `filter [r/ROLE]…​ [s/STATUS]…​ [tg/TAG_GROUP]…​`
 
 Filters the current list for persons matching the specified parameters.
 
@@ -252,7 +252,7 @@ Examples:
 * `filter r/buyer s/completed tg/price` returns all persons who are **buyers**, or whose status is **completed**, or has a tag whose Tag Group is **price**
 
 ### Deleting a person : `delete`
-###### Command: `delete INDEX`
+#### Command: `delete INDEX`
 
 Deletes the specified person from the address book.
 
@@ -265,12 +265,12 @@ Examples:
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ### Listing all persons : `list`
-###### Command: `list`
+#### Command: `list`
 
 Shows a list of all persons in the address book.
 
 ### Creating a Tag Group : `tg`
-###### Command: `tg GROUP_NAME`
+#### Command: `tg GROUP_NAME`
 
 Creates a new Tag Group to organize your tags into categories.
 
@@ -295,7 +295,7 @@ Examples:
 
 
 ### Deleting a Tag Group : `dtg`
-###### Command: `dtg GROUP_NAME`
+#### Command: `dtg GROUP_NAME`
 
 Deletes an existing Tag Group.
 
@@ -325,7 +325,7 @@ Examples:
 </box>
 
 ### Listing all Tag Groups : `tg`
-###### Command: `tg`
+#### Command: `tg`
 
 Lists all Tag Groups you have created.
 
@@ -342,7 +342,7 @@ Examples:
 * `tg` displays all existing Tag Groups such as `propertyType`, `location`, `price`, etc.
 
 ### Viewing status statistics : `stats`
-###### Command: `stats`
+#### Command: `stats`
 
 Displays statistics about the status distribution of all contacts in your address book.
 
@@ -367,7 +367,7 @@ Total: 80 contact(s)
 </box>
 
 ### Clearing all entries : `clear`
-###### Command: `clear`
+#### Command: `clear`
 
 Removes all entries from the address book.
 
@@ -385,12 +385,12 @@ If you enter any other input on accident, the program will continue prompting un
 </box>
 
 ### Exiting the program : `exit`
-###### Command: `exit`
+#### Command: `exit`
 
 Exits the program.
 
 ### Getting help : `help`
-###### Command: `help`
+#### Command: `help`
 
 Opens the following help window, which will direct you to this exact User Guide.
 
