@@ -31,7 +31,7 @@ public class TagGroupCommandParser implements Parser<TagGroupCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, TagGroupCommand.MESSAGE_USAGE));
         }
 
-        TagGroup toCreate = new TagGroup(trimmedArgs);
+        TagGroup toCreate = new TagGroup(trimmedArgs.toUpperCase());
         return new TagGroupCommand(toCreate);
     }
 }

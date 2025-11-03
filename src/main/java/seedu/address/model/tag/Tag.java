@@ -44,17 +44,18 @@ public class Tag {
     public Tag(String tagFormat) {
         requireNonNull(tagFormat);
         checkArgument(isValidTagFormat(tagFormat), MESSAGE_CONSTRAINTS);
-        this.tagFormat = tagFormat;
 
         if (tagFormat.contains(TAG_GROUP_IDENTIFIER)) {
             // Parse group and value from "GROUP.VALUE"
             String[] parts = tagFormat.split("\\.", 2);
-            this.group = new TagGroup(parts[0]);
+            this.group = new TagGroup(parts[0].toUpperCase());
             this.value = parts[1];
+            this.tagFormat = this.group.getName() + "." + this.value;;
         } else {
             // Simple Tag: no group, entire value is tagName
             this.group = null;
             this.value = tagFormat;
+            this.tagFormat = tagFormat;
         }
     }
 

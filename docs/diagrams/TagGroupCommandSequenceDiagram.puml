@@ -52,21 +52,33 @@ activate TagGroupCommand
 TagGroupCommand -> Model : hasTagGroup(tagGroup)
 activate Model
 
-Model --> TagGroupCommand : false
-deactivate Model
-
-TagGroupCommand -> Model : addTagGroup(tagGroup)
-activate Model
-
 Model --> TagGroupCommand
 deactivate Model
 
-create CommandResult
-TagGroupCommand -> CommandResult
-activate CommandResult
+alt tag group does not exist
+    TagGroupCommand -> Model : addTagGroup(tagGroup)
+    activate Model
 
-CommandResult --> TagGroupCommand
-deactivate CommandResult
+    Model --> TagGroupCommand
+    deactivate Model
+
+    create CommandResult
+    TagGroupCommand -> CommandResult
+    activate CommandResult
+
+    CommandResult --> TagGroupCommand
+    deactivate CommandResult
+
+else tag group already exists
+    create CommandResult
+    TagGroupCommand -> CommandResult
+    activate CommandResult
+
+    CommandResult --> TagGroupCommand
+    deactivate CommandResult
+
+    note right: Returns error message\nthat tag group exists
+end
 
 TagGroupCommand --> LogicManager : result
 deactivate TagGroupCommand
