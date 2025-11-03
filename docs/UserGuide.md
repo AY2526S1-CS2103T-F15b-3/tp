@@ -55,7 +55,6 @@ _Refer to the [Features: Section](#features) below for more details and commands
 
 To access this User Guide anytime from the app, use the **`help`** command.
 
-<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -210,6 +209,8 @@ Edits an existing person in the address book.
 * Editing **status** replaces the existing one.
     * Status must be either **Pending** or **Completed** (case-insensitive).
 </box>
+
+<div style="page-break-after: always;"></div>
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -444,6 +445,7 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 **A**: Follow the [Quick Start: Section](#quick-start) to install the app on the new computer. Then, locate the new TrackerGuru home folder and replace its data folder with the data folder from your old computer.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Known issues
 
@@ -451,7 +453,6 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-after: always;"></div>
 
 ## Command summary
 
@@ -469,6 +470,8 @@ Action     | Format, Examples
 **List**   | `list`
 **Stats**  | `stats`
 **Help**   | `help`
+
+<div style="page-break-after: always;"></div>
 
 ## Glossary
 ### Java
