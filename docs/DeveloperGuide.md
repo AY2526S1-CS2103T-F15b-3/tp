@@ -678,17 +678,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. TrackerGuru detects an error in the entered data (missing required fields or improper format).
-    * 1a1. TrackerGuru displays an error message and the proper command format to the user.
-      Use case resumes from step 1.
+  * 1a1. TrackerGuru displays an error message and the proper command format to the user.
+    Use case resumes from step 1.
 
 * 1b. TrackerGuru detects a duplicate contact (same phone number or email).
-    * 1b1. TrackerGuru displays an error message.
-      Use case ends.
+  * 1b1. TrackerGuru displays an error message.
+    Use case ends.
 
 * 1c. Contact uses a Tag Group that has not been created yet.
-    * 1c1. TrackerGuru displays message informing user to create the tag group first.
-    * 1c2. User <u>Creates a Tag Group (UC6)</u>.
-      Use case resumes from step 1.
+  * 1c1. TrackerGuru displays message informing user to create the tag group first.
+  * 1c2. User <u>Creates a Tag Group (UC6)</u>.
+    Use case resumes from step 1.
 
 ---
 
@@ -705,14 +705,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. TrackerGuru detects that the contact’s unique identifier is missing in the entered data.
-    * 1a1. TrackerGuru requests for the contact’s unique identifier.
-      Use case resumes from step 1.
+  * 1a1. TrackerGuru requests for the contact’s unique identifier.
+    Use case resumes from step 1.
 
 * 1b. TrackerGuru cannot find the specified contact’s unique identifier.
-    * 1b1. TrackerGuru requests for a valid unique identifier.
-    * 1b2. User enters a new unique identifier.
-      Steps 1b1–1b2 are repeated until the unique identifier is one that exists.
-      Use case resumes from step 2.
+  * 1b1. TrackerGuru requests for a valid unique identifier.
+  * 1b2. User enters a new unique identifier.
+    Steps 1b1–1b2 are repeated until the unique identifier is one that exists.
+    Use case resumes from step 2.
 
 ---
 
@@ -734,8 +734,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. TrackerGuru detects error in entered command.
-    * 1a1. TrackerGuru displays an error message and the correct command format.
-      Use case resumes from step 1.
+  * 1a1. TrackerGuru displays an error message and the correct command format.
+    Use case resumes from step 1.
 
 ---
 
@@ -757,8 +757,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. TrackerGuru detects an error in the entered data (missing required fields or improper format).
-    * 1a1. TrackerGuru displays an error message and proper command format to the user.
-      Use case resumes from step 1.
+  * 1a1. TrackerGuru displays an error message and proper command format to the user.
+    Use case resumes from step 1.
 
 ---
 
@@ -781,7 +781,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. TrackerGuru detects an error in the entered data.
-    * 1a1. TrackerGuru displays error message with the expected command usage.
+  * 1a1. TrackerGuru displays error message with the expected command usage.
     Use case resumes from step 1.
 
 ---
@@ -804,12 +804,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 1a. TrackerGuru detects that the Tag Group name is missing or improperly formatted.
-    * 1a1. TrackerGuru displays an error message and shows the correct command format.
-      Use case resumes from step 1.
+  * 1a1. TrackerGuru displays an error message and shows the correct command format.
+    Use case resumes from step 1.
 
 * 1b. TrackerGuru detects a duplicate Tag Group name.
-    * 1b1. TrackerGuru displays an error message indicating that the Tag Group already exists.
-      Use case ends.
+  * 1b1. TrackerGuru displays an error message indicating that the Tag Group already exists.
+    Use case ends.
 
 
 ### Non-Functional Requirements
