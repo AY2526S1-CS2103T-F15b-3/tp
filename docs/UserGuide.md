@@ -372,12 +372,16 @@ Total: 80 contact(s)
 Removes all entries from the address book.
 
 When you run this command, the application will ask for confirmation before proceeding.
-You must type: `y` to confirm and clear all entries, or `n` to cancel the action.
+You must type: `y` or `Y` to confirm and clear all entries, or `n` or `N` to cancel the action.
 
-If you enter any other input on accident, the program will continue prompting for `y` or `n` until a valid response is provided.
+If you enter any other input on accident, the program will continue prompting until a valid response is provided.
 <box type="info" seamless>
 
-**Note**: The clear command does not delete individual fields or contacts selectively. It removes all data from the address book once confirmed.
+**Note**: 
+
+* The confirmation is case-insensitive (`y`, `Y`, `n`, or `N` are all valid)
+* The clear command does not delete individual fields or contacts selectively
+* It removes all data from the address book once confirmed
 </box>
 
 ### Exiting the program : `exit`
