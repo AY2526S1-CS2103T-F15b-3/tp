@@ -179,15 +179,17 @@ Edits an existing person in the address book.
 **Field Updates**:
 * The person's `name`, `phone`, `email`, and `address` will be replaced with the new values you enter.
 * Editing **roles** replace all existing roles: roles are not **cumulative**.
-    * You can specify multiple new roles using multiple `r/` prefixes (e.g. `r/Buyer r/Investor`).
+    * You can specify multiple new roles using multiple `[r/ROLE]` prefixes (e.g. `r/Buyer r/Investor`).
 * Editing **status** replaces the existing one.
     * Status must be either **Pending** or **Completed** (case-insensitive).
 * Editing **tags** replaces all existing tags: tags are **not cumulative**.
 
 **Removing all values from a field**:
-* To remove all roles: type `r/` without any value.
+* To remove all roles: type `r/` only without any value.
 * To remove all tags: type `t/` without any value.
 * To remove the status: type `s/` without any value.
+* When removing the above fields, use a single field prefix (`r/`, `t/`, or `s/`). Repeating the field prefix again is invalid. 
+  * For example: `r/ r/Buyer` will display an error.
 * `name`, `phone`, `email`, and `address` must always contain a value.
 
 </box>
@@ -358,7 +360,16 @@ Total: 80 contact(s)
 ### Clearing all entries : `clear`
 ###### Command: `clear`
 
-Clears all entries from the address book.
+Removes all entries from the address book.
+
+When you run this command, the application will ask for confirmation before proceeding.
+You must type: `y` to confirm and clear all entries, or `n` to cancel the action.
+
+If you enter any other input on accident, the program will continue prompting for `y` or `n` until a valid response is provided.
+<box type="info" seamless>
+
+**Note**: The clear command does not delete individual fields or contacts selectively. It removes all data from the address book once confirmed.
+</box>
 
 ### Exiting the program : `exit`
 ###### Command: `exit`
@@ -378,7 +389,7 @@ TrackerGuru data are saved in the hard disk automatically after any command that
 
 ### Editing the data file
 
-TrackerGuru data are saved automatically as a JSON file `[JAR file location]/data/trackerguru.json`. Advanced users are welcome to update data directly by editing that data file.
+TrackerGuru data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
