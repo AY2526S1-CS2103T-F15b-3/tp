@@ -686,7 +686,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 * 1c. Contact uses a Tag Group that has not been created yet.
-    * 1c1. TrackerGuru displays message informing user to create a tag group first.
+    * 1c1. TrackerGuru displays message informing user to create the tag group first.
     * 1c2. User <u>Creates a Tag Group (UC6)</u>.
       Use case resumes from step 1.
 
