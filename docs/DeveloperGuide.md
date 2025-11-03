@@ -71,7 +71,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -85,9 +85,9 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 <puml src="diagrams/UiClassDiagram.puml" alt="Structure of the UI Component"/>
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g. `CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2526S1-CS2103T-F15b-3/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2526S1-CS2103T-F15b-3/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -115,8 +115,8 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 
 How the `Logic` component works:
 
-1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
-1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
+1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g. `DeleteCommandParser`) and uses it to parse the command.
+1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g. `DeleteCommand`) which is executed by the `LogicManager`.
 1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).<br>
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
@@ -126,8 +126,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 <puml src="diagrams/ParserClasses.puml" width="600"/>
 
 How the parsing works:
-* When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g.`AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g. `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
+* All `XYZCommandParser` classes (e.g. `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 * Note: Some commands like `ListCommand`, `StatsCommand`, `ClearCommand`, `ExitCommand`, and `HelpCommand` do not require parsers as they take no parameters.
 
 ### Model component
@@ -138,8 +138,8 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
-* stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the address book data i.e. all `Person` objects (which are contained in a `UniquePersonList` object).
+* stores the currently 'selected' `Person` objects (e.g. results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
@@ -153,7 +153,7 @@ The `Model` component,
 This allows `AddressBook` to:
 - Only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects
 - Only require one `Role` object per unique role, instead of each `Person` needing their own `Role` objects
-- Maintain a centralized collection of `TagGroup` objects for organizing tags into categories (e.g., "PropertyType", "Location")
+- Maintain a centralized collection of `TagGroup` objects for organizing tags into categories (e.g. "PropertyType", "Location")
 
 Tags can optionally belong to a TagGroup, enabling structured organization and group-based filtering of contacts.
 
@@ -223,7 +223,7 @@ Step 3. If any of the checks return true (e.g. the phone number 12345678 already
 
 Step 4. If all checks pass (return false), the new contact is successfully added to the address book.
 
-The following sequence diagrams shows how the duplicate phone number check works during the execution of an add command (the same pattern applies to email checks):
+The following sequence diagrams show how the duplicate phone number check works during the execution of an add command (the same pattern applies to email checks):
 
 <puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram-Logic.puml"/>
 
@@ -283,7 +283,7 @@ The following sequence diagrams shows how the duplicate phone number check works
 
 #### Overview
 
-The Tag Group Management feature allows users to organize tags into logical categories (Tag Groups). This helps property agents categorize and manage their contacts more effectively by grouping related tags together (e.g., `propertyType`, `location`, `priceRange`).
+The Tag Group Management feature allows users to organize tags into logical categories (Tag Groups). This helps property agents categorize and manage their contacts more effectively by grouping related tags together (e.g. `propertyType`, `location`, `priceRange`).
 
 Tag Groups provide the following benefits:
 * **Better organization**: Group related tags together for easier management
@@ -337,7 +337,7 @@ The Tag Group Management feature is implemented through multiple layers of the a
 * `DeleteTagGroupCommandParser`: Parses user input for the `dtg` command and validates the Tag Group name.
 
 **Command Execution Flow:**
-1. User enters a Tag Group command (e.g., `tg propertyType`)
+1. User enters a Tag Group command (e.g. `tg propertyType`)
 2. `AddressBookParser` routes to the appropriate parser
 3. Parser validates input and creates the command object
 4. Command executes by interacting with the `Model`
@@ -473,7 +473,7 @@ The following validation rules are enforced for Tag Group operations:
 2. **Creating Tag Groups:**
     * Duplicate Tag Group names are not allowed
     * Checked using `Model#hasTagGroup()` before adding
-    * Case-sensitive comparison (e.g., `PropertyType` ≠ `propertytype`)
+    * Case-sensitive comparison (e.g. `PropertyType` ≠ `propertytype`)
 
 3. **Deleting Tag Groups:**
     * Tag Group must exist in the address book
@@ -772,7 +772,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-**Use case: UC-5 Edit a contact**
+**Use case: UC5 Edit a contact**
 
 **Guarantees**
 
@@ -1080,23 +1080,24 @@ The application will retain and process all valid data while displaying clear wa
 
 TrackerGuru required approximately **50%** of effort spent on creating AB3 due to:
 - Multiple new features (Tag Groups, Role, Status, filtering, statistics)
-- Extensive Model and Storage refactoring
-- Multi-layer validation logic
+- Extensive Model and Storage refactoring, particularly for the two-tier Tag Group architecture that transformed AB3's simple flat tag structure into a hierarchical categorisation system
+- Multi-layer validation logic with flexible regex patterns
 - Feature integration challenges
 
 ### Challenges Faced
 
 #### 1. Tag Group System Implementation
 
-Implementing a system supporting both grouped tags (`PropertyType.HDB`) and standalone tags (`VIP`) was complex.
+Implementing a system supporting both grouped tags (`PropertyType.HDB`) and standalone tags (`Urgent`) was complex and represented a significant architectural departure from AB3's simple tag structure.
 
 Key issues:
-- Deciding between bidirectional vs unidirectional `Tag`-`TagGroup` references
-- Handling tags referencing deleted Tag Groups
-- JSON serialization/deserialization
-- Balancing strict validation with data resilience
+- Deciding how `Tag` and `TagGroup` should connect to each other while keeping data consistent across all parts of the app
+- Handling what happens when users delete a Tag Group that tags are using without losing user data
+- Saving and loading Tag Groups from JSON files which required creating a new storage adapter class
+- Balancing strict input rules with flexibility by using different validation patterns: GROUP names are letters/numbers only, but VALUES can include dots, hyphens, and underscores for real property data like `price.1.5M-2M`
+- Preventing deletion of Tag Groups currently in use by checking all contacts efficiently
 
-Solution: Used unidirectional references from `Tag` to `TagGroup`, implemented graceful degradation for missing Tag Groups, and created `JsonAdaptedTagGroup` for storage.
+Solution: Made `Tag` reference `TagGroup` in one direction only, implemented graceful fallback when Tag Groups are missing, and created `JsonAdaptedTagGroup` for file storage. **Updated `AddressBook` and `ModelManager` with methods to manage Tag Groups (`addTagGroup()`, `deleteTagGroup()`, `hasTagGroup()`, `listTagGroups()`) and added validation in `AddCommand`/`EditCommand` to check Tag Groups exist before saving contacts.**
 
 #### 2. Duplicate Field Detection
 
@@ -1104,10 +1105,9 @@ Implementing duplicate phone/email detection across add and edit operations requ
 
 Key issues:
 - Cascading checks through multiple layers (AddCommand → ModelManager → AddressBook → UniquePersonList)
-- Excluding the edited person from duplicate checks in `EditCommand`
-- Maintaining performance with large contact lists
+- Incorrect duplicate handling logic 
 
-Solution: Implemented `hasSamePhoneNumber()` and `hasSameEmail()` at each Model layer using Java Streams for efficiency.
+Solution: Implemented `hasSamePhoneNumber()` and `hasSameEmail()` at each Model layer using Java Streams for efficiency and changed the duplicate handling logic to check for duplicate phone number and email.
 
 #### 3. Multi-Criteria Filtering
 
@@ -1118,7 +1118,7 @@ Key issues:
 - Handling non-existent filter values (should not error for roles/statuses but should for Tag Groups)
 - Updating JavaFX `ObservableList` reactively
 
-Solution: Created specialized predicate classes and combined them with `Predicate.or()`, with validation only for Tag Groups.
+Solution: Created specialised predicate classes and combined them with more lenient "or" logic
 
 #### 4. Tag Group Deletion Validation
 
@@ -1129,15 +1129,15 @@ Key issues:
 - Performance with many contacts
 - Clear error messages when deletion blocked
 
-Solution: Used `Model#isTagGroupInUse()` with Java Streams (`flatMap()` + `anyMatch()`) for single-pass checking.
+Solution: Used `Model#isTagGroupInUse()` to check all contacts in one pass for better performance.
 
 ### Achievements
 
-**Domain-Specific Features**: Transformed AB3 into a specialized property agent tool with Tag Groups, roles, statuses, filtering, and statistics.
+**Domain-Specific Features**: Transformed AB3 into a specialized property agent tool with organised Tag Groups that work like folders for categorizing tags (e.g. `propertyType.HDB`), roles, statuses, filtering, and statistics.
 
-**Data Integrity**: Implemented duplicate detection for phone/email, comprehensive format validation, and graceful handling of corrupted data.
+**Data Integrity**: Implemented duplicate detection for phone/email, comprehensive Tag Group validation that accepts flexible real-world formats, and graceful handling of corrupted data **including handling missing Tag Group references**.
 
-**Code Quality**: Maintained clean architecture with proper layer separation, design patterns, and comprehensive test coverage.
+**Code Quality**: Maintained clean architecture with proper separation between different parts of the app, comprehensive test coverage, and extensive documentation.
 
 ### Reuse and Adaptation
 
