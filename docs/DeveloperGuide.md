@@ -1073,3 +1073,74 @@ The application will retain and process all valid data while displaying clear wa
       - `tg PropertyType` → Creates Tag Group "PropertyType" (unchanged)
       - `ltg` → Lists all Tag Groups
       - `tg` → Shows error message directing users to use ltg for listing
+
+## **Appendix: Effort**
+
+### Difficulty Level
+
+TrackerGuru required approximately **50%** of effort spent on creating AB3 due to:
+- Multiple new features (Tag Groups, Role, Status, filtering, statistics)
+- Extensive Model and Storage refactoring
+- Multi-layer validation logic
+- Feature integration challenges
+
+### Challenges Faced
+
+#### 1. Tag Group System Implementation
+
+Implementing a system supporting both grouped tags (`PropertyType.HDB`) and standalone tags (`VIP`) was complex.
+
+Key issues:
+- Deciding between bidirectional vs unidirectional `Tag`-`TagGroup` references
+- Handling tags referencing deleted Tag Groups
+- JSON serialization/deserialization
+- Balancing strict validation with data resilience
+
+Solution: Used unidirectional references from `Tag` to `TagGroup`, implemented graceful degradation for missing Tag Groups, and created `JsonAdaptedTagGroup` for storage.
+
+#### 2. Duplicate Field Detection
+
+Implementing duplicate phone/email detection across add and edit operations required careful design.
+
+Key issues:
+- Cascading checks through multiple layers (AddCommand → ModelManager → AddressBook → UniquePersonList)
+- Excluding the edited person from duplicate checks in `EditCommand`
+- Maintaining performance with large contact lists
+
+Solution: Implemented `hasSamePhoneNumber()` and `hasSameEmail()` at each Model layer using Java Streams for efficiency.
+
+#### 3. Multi-Criteria Filtering
+
+The filter command needed to support OR logic across Tag Groups, roles, and statuses.
+
+Key issues:
+- Combining multiple predicate types efficiently
+- Handling non-existent filter values (should not error for roles/statuses but should for Tag Groups)
+- Updating JavaFX `ObservableList` reactively
+
+Solution: Created specialized predicate classes and combined them with `Predicate.or()`, with validation only for Tag Groups.
+
+#### 4. Tag Group Deletion Validation
+
+Preventing deletion of in-use Tag Groups required scanning all contacts efficiently.
+
+Key issues:
+- Checking all persons and their tags for Tag Group references
+- Performance with many contacts
+- Clear error messages when deletion blocked
+
+Solution: Used `Model#isTagGroupInUse()` with Java Streams (`flatMap()` + `anyMatch()`) for single-pass checking.
+
+### Achievements
+
+**Domain-Specific Features**: Transformed AB3 into a specialized property agent tool with Tag Groups, roles, statuses, filtering, and statistics.
+
+**Data Integrity**: Implemented duplicate detection for phone/email, comprehensive format validation, and graceful handling of corrupted data.
+
+**Code Quality**: Maintained clean architecture with proper layer separation, design patterns, and comprehensive test coverage.
+
+### Reuse and Adaptation
+
+- **Reused**: UI components, Storage infrastructure, Command framework
+- **Adapted**: `Model` (Tag Groups, duplicate detection), `Logic` (new parsers/commands), `UniquePersonList` (duplicate checking)
+- **New**: Tag Group feature, Statistics, Filtering system, Duplicate field handling
