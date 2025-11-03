@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.application.Platform;
@@ -23,13 +24,15 @@ public class UiManager implements Ui {
     private static final String ICON_APPLICATION = "/images/address_book_32.png";
 
     private Logic logic;
+    private final List<String> startupWarnings;
     private MainWindow mainWindow;
 
     /**
      * Creates a {@code UiManager} with the given {@code Logic}.
      */
-    public UiManager(Logic logic) {
+    public UiManager(Logic logic, List<String> startupWarnings) {
         this.logic = logic;
+        this.startupWarnings = startupWarnings;
     }
 
     @Override
@@ -43,6 +46,11 @@ public class UiManager implements Ui {
             mainWindow = new MainWindow(primaryStage, logic);
             mainWindow.show(); //This should be called before creating other UI parts
             mainWindow.fillInnerParts();
+
+            // Show startup warnings after the UI is ready
+            if (startupWarnings != null) {
+                showStartupWarnings(startupWarnings);
+            }
 
         } catch (Throwable e) {
             logger.severe(StringUtil.getDetails(e));
@@ -85,4 +93,19 @@ public class UiManager implements Ui {
         System.exit(1);
     }
 
+    /**
+     * Shows all startup warnings one by one.
+     * Each warning is shown as a modal alert dialog.
+     */
+    public void showStartupWarnings(List<String> warnings) {
+        assert warnings != null : "Startup warnings list should not be null";
+
+        if (warnings.isEmpty()) {
+            return;
+        }
+
+        for (String warning : warnings) {
+            showAlertDialogAndWait(Alert.AlertType.WARNING, "Startup Warning", null, warning);
+        }
+    }
 }

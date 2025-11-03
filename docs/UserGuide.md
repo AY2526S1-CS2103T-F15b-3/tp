@@ -406,9 +406,12 @@ TrackerGuru data are saved automatically as a JSON file `[JAR file location]/dat
 
 <box type="warning" seamless>
 
-**Caution:**
-If your changes to the data file invalidate its format, TrackerGuru will discard all data and start with an empty data file at the next run.  Hence, it is recommended to save a backup of the file before editing it.<br>
+**Caution: All or Nothing Strategy**
+
+If your changes to the data file invalidate its format, TrackerGuru will currently **ignore all existing data** and display an empty data file at the next run instead. Hence, it is recommended to save a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the TrackerGuru to behave in unexpected ways (e.g. if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+
+**Note**: The existing JSON file on disk will not be overwritten unless you run commands in TrackerGuru, so you must close the TrackerGuru application window to prevent any loss to your data.
 </box>
 
 --------------------------------------------------------------------------------------------------------------------
