@@ -10,9 +10,7 @@ participant "a:AddCommand" as AddCommand LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
-participant ":ModelManager" as ModelManager MODEL_COLOR
-participant ":AddressBook" as AddressBook MODEL_COLOR
-participant ":UniquePersonList" as UniquePersonList MODEL_COLOR
+participant "m:Model" as Model MODEL_COLOR
 end box
 
 [-> LogicManager : execute("add n/John p/12345678...")
@@ -35,11 +33,12 @@ create AddCommand
 AddCommandParser -> AddCommand
 activate AddCommand
 
-AddCommand --> AddCommandParser : a
+AddCommand --> AddCommandParser :
 deactivate AddCommand
 
 AddCommandParser --> AddressBookParser : a
 deactivate AddCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
 AddCommandParser -[hidden]-> AddressBookParser
 destroy AddCommandParser
 
@@ -49,23 +48,11 @@ deactivate AddressBookParser
 LogicManager -> AddCommand : execute(m)
 activate AddCommand
 
-AddCommand -> ModelManager : hasSamePhoneNumber(toAdd)
-activate ModelManager
+AddCommand -> Model : hasSamePhoneNumber(toAdd)
+activate Model
 
-ModelManager -> AddressBook : hasSamePhoneNumber(toAdd)
-activate AddressBook
-
-AddressBook -> UniquePersonList : containsPhoneNumber(toAdd)
-activate UniquePersonList
-
-UniquePersonList --> AddressBook : true
-deactivate UniquePersonList
-
-AddressBook --> ModelManager : true
-deactivate AddressBook
-
-ModelManager --> AddCommand : true
-deactivate ModelManager
+Model --> AddCommand : true
+deactivate Model
 
 AddCommand --X LogicManager : CommandException\n(MESSAGE_DUPLICATE_PHONE)
 deactivate AddCommand
