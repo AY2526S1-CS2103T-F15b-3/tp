@@ -227,6 +227,12 @@ The following sequence diagrams shows how the duplicate phone number check works
 
 <puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram-Logic.puml"/>
 
+<box type="info" seamless>
+
+**Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
+
+</box>
+
 <puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram-Model.puml"/>
 
 <box type="info" seamless>
