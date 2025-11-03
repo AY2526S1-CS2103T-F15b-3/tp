@@ -233,7 +233,7 @@ The following sequence diagrams show how the duplicate phone number check works 
 
 </box>
 
-<puml src="diagrams/DuplicatePhoneHandlingSequenceDiagram-Model.puml"/>
+<puml src="diagrams/DuplicatePhoneModelSequenceDiagram-Model.puml"/>
 
 <box type="info" seamless>
 
