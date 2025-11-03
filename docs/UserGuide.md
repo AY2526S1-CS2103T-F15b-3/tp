@@ -55,7 +55,6 @@ _Refer to the [Features: Section](#features) below for more details and commands
 
 To access this User Guide anytime from the app, use the **`help`** command.
 
-<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -161,9 +160,9 @@ Adds a person (see [definition](#person)) to the address book.
 * Role is **optional**. You can add multiple roles by repeating `r/ROLE` but a contact made with **duplicate roles** will throw an error message. See [Role](#role) in the glossary for more details.
 <br> Example: `r/Buyer r/Investor` is acceptable, `r/Buyer r/buyer` is unacceptable.
 
-* Status is **optional**. If provided, it must be `Pending` or `Completed` (case-insensitive). Each person can have only one status.
+* Status is **optional**. If provided, it must be `Pending` or `Completed` (case-insensitive). Each person can have only one status. See [Status](#status) in the glossary for more details.
 
-* Tags are **optional** and can be formatted as either:
+* Tags are **optional**. See [Tag](#tag) in the glossary for more details. It can be formatted as either:
     - `t/GROUP.VALUE`: both `GROUP` and `VALUE` are alphanumeric
     - `t/TAG`: a single alphanumeric tag
 </box>
@@ -210,6 +209,8 @@ Edits an existing person in the address book.
 * Editing **status** replaces the existing one.
     * Status must be either **Pending** or **Completed** (case-insensitive).
 </box>
+
+<div style="page-break-after: always;"></div>
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -444,6 +445,7 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 **A**: Follow the [Quick Start: Section](#quick-start) to install the app on the new computer. Then, locate the new TrackerGuru home folder and replace its data folder with the data folder from your old computer.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Known issues
 
@@ -451,7 +453,6 @@ Furthermore, certain edits can cause the TrackerGuru to behave in unexpected way
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-after: always;"></div>
 
 ## Command summary
 
@@ -469,6 +470,8 @@ Action     | Format, Examples
 **List**   | `list`
 **Stats**  | `stats`
 **Help**   | `help`
+
+<div style="page-break-after: always;"></div>
 
 ## Glossary
 ### Java
