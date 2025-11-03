@@ -686,13 +686,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 * 1c. Contact uses a Tag Group that has not been created yet.
-    * 1c1. TrackerGuru displays an error message indicating invalid command format.
+    * 1c1. TrackerGuru displays message informing user to create the tag group first.
     * 1c2. User <u>Creates a Tag Group (UC6)</u>.
       Use case resumes from step 1.
-
-* 1d. TrackerGuru fails to save the contact due to a system error.
-    * 1d1. TrackerGuru displays an error message.
-      Use case ends.
 
 ---
 
@@ -718,13 +714,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Steps 1b1–1b2 are repeated until the unique identifier is one that exists.
       Use case resumes from step 2.
 
-* 1c. TrackerGuru fails to delete the contact due to a system error.
-    * 1c1. TrackerGuru informs the user.
-      Use case ends.
-
-* *a. At any time, User chooses to cancel the deletion request.
-  Use case ends.
-
 ---
 
 **Use case: UC3 - Filter contacts by roles, statuses, and Tag Groups**
@@ -744,17 +733,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. User enters an invalid command format (e.g. missing prefixes or incorrect syntax).
+* 1a. TrackerGuru detects error in entered command.
     * 1a1. TrackerGuru displays an error message and the correct command format.
       Use case resumes from step 1.
-
-* 1b. User specifies no filter criteria.
-    * 1b1. TrackerGuru displays an error message indicating invalid command format.
-      Use case resumes from step 1.
-
-* 1c. TrackerGuru encounters a system error while filtering.
-    * 1c1. TrackerGuru displays an error message.
-      Use case ends.
 
 ---
 
@@ -779,10 +760,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TrackerGuru displays an error message and proper command format to the user.
       Use case resumes from step 1.
 
-* 1b. TrackerGuru fails to search contacts due to a system error.
-    * 1b1. TrackerGuru displays an error message.
-      Use case ends.
-
 ---
 
 **Use case: UC-5 Edit a contact**
@@ -794,7 +771,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to edit contact with together with their relevant details.
+1. User requests to edit contact with updated details.
 2. TrackerGuru edits and saves the updated contact information.
 3. TrackerGuru displays success message to the user.
 4. TrackerGuru's contact list reflects the updated contact information.
@@ -803,13 +780,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. TrackerGuru detects an error in the entered data (invalid index).
-    * 1a1. TrackerGuru displays error message that the specified index is invalid.
+* 1a. TrackerGuru detects an error in the entered data.
+    * 1a1. TrackerGuru displays error message with the expected command usage.
     Use case resumes from step 1.
-
-* 2a. TrackerGuru fails to edit the contact information due to a system error.
-    * 2a1. TrackerGuru displays an error message indicating the failure.
-    Use case ends.
 
 ---
 
@@ -836,10 +809,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1b. TrackerGuru detects a duplicate Tag Group name.
     * 1b1. TrackerGuru displays an error message indicating that the Tag Group already exists.
-      Use case ends.
-
-* 1c. TrackerGuru fails to save the Tag Group due to a system error.
-    * 1c1. TrackerGuru displays an error message.
       Use case ends.
 
 
@@ -1037,10 +1006,10 @@ Testers should verify that error and success messages match the described behavi
    1. **Test case**: `filter`
    Expected: Error message shown.
 
-   2. **Test case**: `filter t/` or `filter r/` or `filter s/`
+   2. **Test case**: `filter tg/` or `filter r/` or `filter s/`
    Expected: Error message shown, filter values must be specified.
 
-   3. **Test case**: `filter t/UnknownTag r/UnknownRole`
+   3. **Test case**: `filter tg/UnknownGroup r/UnknownRole`
    Expected: No contacts shown, success message with empty list.
 
 ### Saving data

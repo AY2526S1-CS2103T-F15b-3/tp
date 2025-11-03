@@ -237,12 +237,12 @@ Filters the current list for persons matching the specified parameters.
 
 <box type="info" seamless>
 
-* The filtering of Roles is **case-insensitive**.
+* The filtering of Roles, Statuses and Tag Groups are **case-insensitive**.
     * e.g. `r/buyer` will match `r/Buyer`
 * You can filter with any combination of: **Role(s)**, **Status(es)**, **TagGroup(s)**
 * You may specify multiple Roles, Statuses, and Tag Groups
+* At least one optional field must be provided
 * A person will be shown if they match **any** of the specified parameters
-* If no parameters are provided, no filtering will occur
 
 </box>
 
