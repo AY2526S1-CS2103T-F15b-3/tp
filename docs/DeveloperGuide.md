@@ -894,7 +894,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **Appendix: Instructions for Manual Testing**
 
 The following are sample instructions for manually testing TrackerGuru.
 They serve as a starting point; you are encouraged to perform **exploratory testing** beyond these examples to uncover edge cases.
@@ -1070,3 +1070,13 @@ Testers should verify that error and success messages match the described behavi
 
        **Expected:** For data resilience, TrackerGuru commands still work normally with Tag Group `PropertyType` and does not affect normal operations.
    Only when listing using `tg`, `PropertyType` will not appear.
+
+## **Appendix: Future Enhancement**
+
+Team size: 5
+
+1. **Allow Optional Contact Fields in Add Command**: Currently, the add command requires users to input all four contact details: name, phone number, email, and address. This rigid requirement can be inconvenient for property agents, who often have only partial information. We plan to enhance the add command to allow these fields to be optional. Users will be able to add a new contact with any combination of available details, such as only a name and phone number. Missing fields will be stored as empty values and displayed as N/A in the contact list. 
+This enhancement will provide greater flexibility and a smoother user experience, allowing agents to store and manage client information more conveniently without being restricted by mandatory fields.
+
+2. **Support Incremental Editing for Roles, Statuses, and Tags**: Currently, the edit command overwrites all existing fields such as roles (r/), statuses (s/), and tags (t/) whenever these parameters are provided. This causes all prior data to be lost, even if the user’s intention was only to add or remove a single value.
+We plan to enhance the edit command to differentiate between different types of edit operations, namely adding, removing, and replacing data. By distinguishing between these different edit command types, this enhancement will prevent accidental data loss, provide users with finer control over their edits and make the command behavior more intuitive for everyday use.
