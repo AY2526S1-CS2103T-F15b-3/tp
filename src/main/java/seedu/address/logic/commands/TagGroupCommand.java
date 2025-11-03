@@ -21,6 +21,7 @@ public class TagGroupCommand extends Command {
             + COMMAND_WORD + "\n"
             + "To create Tag Groups, please follow the given format: "
             + COMMAND_WORD + " TAG_GROUP\n"
+            + TagGroup.MESSAGE_CONSTRAINTS + "\n"
             + "Example: " + COMMAND_WORD + " location";
 
     public static final String MESSAGE_CREATE_SUCCESS = "New Tag Group has been created: %1$s";
