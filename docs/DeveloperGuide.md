@@ -1087,7 +1087,11 @@ Team size: 5
 The application will retain and process all valid data while displaying clear warnings that specify which entries are corrupted and why. This improvement increases data resilience, usability and debugging efficiency.
 
 
-4. **Separate Command for Listing Tag Groups**: Currently, the tg command has dual behavior - tg TAGGROUP_NAME creates a Tag Group while tg (without arguments) lists all existing Tag Groups. This dual behavior can be confusing as the same command does different things based on whether arguments are provided. We plan to introduce a separate ltg command specifically for listing Tag Groups.
-
-    - Current behavior: tg PropertyType → Creates Tag Group "PropertyType", tg → Lists all Tag Groups
-    - Planned behavior: tg PropertyType → Creates Tag Group "PropertyType" (unchanged), ltg → Lists all Tag Groups, tg → Shows error message directing users to use ltg for listing
+4. **Separate Command for Listing Tag Groups**: Currently, the tg command has dual behavior - `tg TAGGROUP_NAME` creates a Tag Group while `tg` (without arguments) lists all existing Tag Groups. This dual behavior can be confusing as the same command does different things based on whether arguments are provided. We plan to introduce a separate ltg command specifically for listing Tag Groups.
+    - Current behavior: 
+      - `tg PropertyType` → Creates Tag Group "PropertyType"
+      - `tg` → Lists all Tag Groups
+    - Planned behavior: 
+      - `tg PropertyType` → Creates Tag Group "PropertyType" (unchanged)
+      - `ltg` → Lists all Tag Groups
+      - `tg` → Shows error message directing users to use ltg for listing
