@@ -366,6 +366,11 @@ The Tag Group Management feature is implemented through multiple layers of the a
 
 The sequence diagram above illustrates the interaction between Logic and Model components when creating a Tag Group.
 
+<box type="info" seamless>
+
+**Note:** The lifeline for `TagGroupCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
+</box>
+
 ##### Scenario 2: Listing Tag Groups
 
 **User Goal:** View all created Tag Groups
