@@ -16,7 +16,7 @@ public class Messages {
             + "Please Type 'help' to see the list of available commands.";
     public static final String MESSAGE_INVALID_COMMAND_FORMAT = "This command format is invalid. \n%1$s";
     public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The index provided is invalid.\n"
-            + "Please type 'list' to view valid indexes.";
+            + "Refer to current displayed list for valid indexes.";
     public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d persons listed!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
             "You’ve entered multiple values for the following field(s): ";
