@@ -174,7 +174,7 @@ edit 2 s/PENDING t/urgent.high t/budget.500k t/location.tampines t/rooms.4 t/vie
 **[Result shows Sarah updated with viewing tag]**
 
 **[Narrator]:**
-"No forms. No menus. Just typing and hitting enter. We can now see the progress of Linda and Sarah. The tags build a complete timeline with both sides of the transaction and everything documented."
+"No forms. No menus. Just typing and hitting enter. We can now see the progress of Linda and Sarah. The tags build a complete timeline with both sides of the transaction documented."
 
 ---
 
