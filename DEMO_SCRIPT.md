@@ -146,7 +146,7 @@ filter t/rooms.4 t/location.tampines t/budget.500k
 **[Pause for effect]**
 
 **[Narrator]:**
-"Traditionally, Xiao Ming had to scroll through each contact, cross-reference manually, hoping he didn't miss anyone. But TrackerGuru found this match in seconds. In the time it takes other agents to open their spreadsheet, Xiao Ming is already texting Sarah to arrange for a viewing!"
+"Traditionally, Xiao Ming had to cross-reference each contact manually, hoping he didn't miss anyone. But TrackerGuru found this match in seconds. In the time it takes other agents to open their spreadsheet, Xiao Ming is already texting Sarah to arrange for a viewing!"
 
 **[Pause]**
 
